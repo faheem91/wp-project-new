@@ -155,23 +155,6 @@ public function processp1(){
 			);
 		
 
-	//	echo $countryCode.'\n';
-//		echo $postalCode.'\n';
-//		echo $statuschooser.'\n';
-	//	echo $jobTitle.'\n';
-	//	echo $company.'\n';
-//		echo $id.'\n';
-//		echo $mostRecentJob.'\n';
-		//echo $mostRecentCompany.'\n';
-//		echo $lang.'\n';
-//		echo $YearsOfExperience.'\n';
-//		echo $date.'\n';
-//		echo $college.'\n';
-
-
-
-
-
 		$this->db->insert('profile' , $data);
 		//echo $data;
 
@@ -181,7 +164,7 @@ if($statuschooser=="employed")
 
 		$this->db->where('companyName', $company);
 		$query = $this->db->get('company');
-		if($query->num_rows == 1){
+	if($query->num_rows == 1){
 			// If there is a user, then create session data
 			$row = $query->row();
 			$companyID =$row->CompanyId;
@@ -205,21 +188,19 @@ if($statuschooser=="employed")
 
 
 }
-
+}
 $data=array(
 	'userId'=>$id,
 	'jobTitle'=>$jobTitle,
 	'CompanyId'=>$companyID
-
-
-
 );
+
 $this->db->insert('job',$data);
 
 
 
 
-}
+
 
 }
 
@@ -259,7 +240,7 @@ if($query->num_rows == 1){
 
 
 }
-
+}
 $data=array(
 	'userId'=>$id,
 	'jobTitle'=>$jobTitle,
@@ -274,7 +255,7 @@ $this->db->insert('job',$data);
 
 
 
-}
+
 }
 
 if($statuschooser=="Student")
@@ -304,7 +285,7 @@ if($query->num_rows == 1){
 			
 			$collegeID =$row->institutionId;
 }
-
+}
 $data=array(
 	'userId'=>$id,
 	'institutionId'=>$collegeID
@@ -316,7 +297,7 @@ $this->db->insert('education',$data);
 
 
 
-}
+
 }
 
 

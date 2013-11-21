@@ -79,22 +79,6 @@ public function imagePage(){
 	$this->load->helper('url');
 $this->load->model('signup_model');
 $d=$this->signup_model->processp1();
-//echo var_dump($d) ;
-
-/*	echo $d['countryCode'].'\n';
-		echo $d['postalCode'].'\n';
-		echo $d['statuschooser'].'\n';
-		echo $d['jobTitle'].'\n';
-		echo $d['company'].'\n';
-		echo $d['id'].'\n';
-		echo $d['mostRecentJob'].'\n';
-		echo $d['mostRecentCompany'].'\n';
-		echo $d['lang'].'\n';
-		echo $d['YearsOfExperience'].'\n';
-		echo $d['$date'].'\n';
-		echo $d['college'].'\n';
-
-*/
 
 $this->load->view('common/header2.php');
 $this->load->view('signupsviews/uploadpic.php');

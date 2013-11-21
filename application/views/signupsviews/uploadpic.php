@@ -60,7 +60,8 @@
 								</div>						
 							</div>
 							<p class="skip">
-								<a id="skipButton" href="javascript:void(0)"> Skip this step </a>»
+								<a id="skipButton" href="<?php echo base_url();?>/index.php/signup/signup/process3"> Skip this step </a>
+	
 							</p>								
 							
 						</div>
