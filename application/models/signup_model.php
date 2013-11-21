@@ -124,13 +124,14 @@ $data = array(
 public function processp1(){
 
 		$countryCode = $this->security->xss_clean($this->input->post('countryCode'));
+
 		$postalCode = $this->security->xss_clean($this->input->post('postalCode'));
+		
 		$statuschooser=$this->security->xss_clean($this->input->post('status-chooser'));
-		$JobTitle=$this->security->xss_clean($this->input->post('JobTitle'));
+
+		$jobTitle=$this->security->xss_clean($this->input->post('JobTitle'));
 		$company=$this->security->xss_clean($this->input->post('company'));
 		$id=$this->session->userdata('userid');
-
-		
 		$mostRecentJob=$this->security->xss_clean($this->input->post('mostRecentJob'));
 		$mostRecentCompany=$this->security->xss_clean($this->input->post('mostRecentCompany'));
 		$college=$this->security->xss_clean($this->input->post('college'));
@@ -152,7 +153,27 @@ public function processp1(){
 
 
 			);
+		
+
+	//	echo $countryCode.'\n';
+//		echo $postalCode.'\n';
+//		echo $statuschooser.'\n';
+	//	echo $jobTitle.'\n';
+	//	echo $company.'\n';
+//		echo $id.'\n';
+//		echo $mostRecentJob.'\n';
+		//echo $mostRecentCompany.'\n';
+//		echo $lang.'\n';
+//		echo $YearsOfExperience.'\n';
+//		echo $date.'\n';
+//		echo $college.'\n';
+
+
+
+
+
 		$this->db->insert('profile' , $data);
+		//echo $data;
 
 if($statuschooser=="employed")
 {
@@ -168,10 +189,11 @@ if($statuschooser=="employed")
 		else{
 
 		$data=array(
-			'companyName'=>$company
+			'companyName'=>$company,
+			'companySize'=>1
 			);
 
-		$this->db->insert('company');
+		$this->db->insert('company',$data);
 		$this->db->where('companyName', $company);
 		$query = $this->db->get('company');
 		if($query->num_rows == 1){
@@ -186,14 +208,13 @@ if($statuschooser=="employed")
 
 $data=array(
 	'userId'=>$id,
-	'jobTitle'=>$JobTitle,
+	'jobTitle'=>$jobTitle,
 	'CompanyId'=>$companyID
 
 
 
 );
 $this->db->insert('job',$data);
-
 
 
 
@@ -221,10 +242,11 @@ if($query->num_rows == 1){
 else{
 
 $data=array(
-	'companyName'=>$mostRecentCompany
+	'companyName'=>$mostRecentCompany,
+	'companySize'=>1
 	);
 
-$this->db->insert('company');
+$this->db->insert('company',$data);
 
 		$this->db->where('companyName', $mostRecentCompany);
 			$query = $this->db->get('company');
@@ -240,7 +262,7 @@ if($query->num_rows == 1){
 
 $data=array(
 	'userId'=>$id,
-	'jobTitle'=>$JobTitle,
+	'jobTitle'=>$jobTitle,
 	'CompanyId'=>$companyID
 
 
@@ -253,53 +275,12 @@ $this->db->insert('job',$data);
 
 
 }
-}
- if($statuschooser=="employed")
-
-{
-	$this->db->where('companyName', $company);
-			$query = $this->db->get('company');
-if($query->num_rows == 1){
-			// If there is a user, then create session data
-			$row = $query->row();
-			$companyID =$row->CompanyId;
-}
-else{
-
-$data=array(
-	'companyName'=>$company
-	);
-
-$this->db->insert('company');
-
-		$this->db->where('companyName', $company);
-			$query = $this->db->get('company');
-if($query->num_rows == 1){
-			// If there is a user, then create session data
-			$row = $query->row();
-			$companyID =$row->CompanyId;
-}
-
-$data=array(
-	'userId'=>$id,
-	'jobTitle'=>$JobTitle,
-	'CompanyId'=>$companyID
-	);
-$this->db->insert('job',$data);
-
-
-
-
-
-}
-
-
 }
 
 if($statuschooser=="Student")
 
 {		$this->db->where('name', $college);
-			$query = $this->db->get('institution');
+		$query = $this->db->get('institution');
 if($query->num_rows == 1){
 			// If there is a user, then create session data
 			$row = $query->row();
@@ -308,16 +289,19 @@ if($query->num_rows == 1){
 else{
 
 $data=array(
-	'name'=>$college
+	'name'=>$college,
+	'description'=>"college"
 	);
 
-$this->db->insert('institution');
+
+$this->db->insert('institution',$data);
 
 		$this->db->where('name', $college);
 			$query = $this->db->get('institution');
 if($query->num_rows == 1){
 			// If there is a user, then create session data
 			$row = $query->row();
+			
 			$collegeID =$row->institutionId;
 }
 
@@ -325,8 +309,9 @@ $data=array(
 	'userId'=>$id,
 	'institutionId'=>$collegeID
 	);
-$this->db->insert('education',$data);
 
+
+$this->db->insert('education',$data);
 
 
 
