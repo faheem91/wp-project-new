@@ -10,9 +10,7 @@ class Login extends CI_Controller{
 	}
 	
 	public function index($msg = NULL){
-		// Load our view to be displayed
-		// to the user
-		$this->load->helper('url');
+			$this->load->helper('url');
 
 		if($this->session->userdata('username')){
 			redirect('search/search', 'refresh');

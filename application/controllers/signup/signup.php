@@ -78,7 +78,7 @@ $this->load->view('signupsviews/signupprocess2.php');
 public function imagePage(){
 	$this->load->helper('url');
 $this->load->model('signup_model');
-$this->signup_model->processp1();
+$d=$this->signup_model->processp1();
 
 $this->load->view('common/header2.php');
 $this->load->view('signupsviews/uploadpic.php');

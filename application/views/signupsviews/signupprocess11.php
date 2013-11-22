@@ -50,7 +50,7 @@
 							<a href="https://twitter.com/share" class="twitter-share-button" data-via="Asadkaramat">
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><button class="btn-icon twitter"><span>Share on Twitter</span></button></a>
 						</p>
-						<a id="skip" class="skip" href="#"> Skip this step » </a>
+						<a id="skip" class="skip" href="<?php echo base_url('index.php/login/login');?>"> Skip this step » </a>
 					</form>
 					
 				</div>				

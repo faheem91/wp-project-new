@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '205.204.72.199';
-$db['default']['username'] = 'x2deezon_project';
-$db['default']['password'] = 'ShahAlam546';
-$db['default']['database'] = 'x2deezon_wp_project';
+$db['default']['username'] = 'x2deezon_user';
+$db['default']['password'] = 'Hamza123!';
+$db['default']['database'] = 'x2deezon_wp_db';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -63,6 +63,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
 
 
 /* End of file database.php */

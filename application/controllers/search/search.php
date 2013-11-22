@@ -19,6 +19,7 @@ class search extends CI_Controller{
 		$id = $this->signup_model->getProfileImage();
 			
 				$data["pic_url"]='uploads/30_'.$id.'.jpg';
+				
 				$fname=$this->session->userdata('fname');
 				$lname=$this->session->userdata('lname');
 				$fullname=$fname." ".$lname;
@@ -41,39 +42,6 @@ class search extends CI_Controller{
 		}
 		//$this->load->view('common/footer',$data);
 	}
-public function findAlumnai(){
-
-
-$this->load->helper('url');
-
-		if($this->session->userdata('username')){
-				$this->load->model('signup_model');
-		// Validate the user can login
-$id = $this->signup_model->getProfileImage();
-
-				$data["pic_url"]='uploads/30_'.$id.'.jpg';
-				//$another=base_url();
-				//$anotherData='http://'.$another.$data["pic_url"];
-
-				
-
-
-
-			$this->load->view('common/header');
-			$this->load->view('search/find_Alumni.php',$data);
-		}else{
-			$data['msg'] = $msg;
-			$data['heading'] = "Login";
-			$this->load->view('common/header');
-			//$this->load->view('loginView/login_view', $data)
-			$this->load->view('myview/default_main_page.php');
-		}
-
-
-
-
-}
-
 
 public function search_keyword(){
 
@@ -82,6 +50,7 @@ $this->load->helper('url');
 		if($this->session->userdata('username')){
 			$this->load->model('signup_model');
 		// Validate the user can login
+			//ok
 		$id = $this->signup_model->getProfileImage();
 			
 				$data["pic_url"]='uploads/30_'.$id.'.jpg';
@@ -112,7 +81,8 @@ $this->load->helper('url');
 		}else{
 			
 			//redirect('search/search_keyword', 'refresh');
-			echo 'No results found';
+			$this->load->view('common/header');
+		    $this->load->view('search/nosearchresults.php',$data);
 		}		
 		}else{
 			$data['msg'] = $msg;
@@ -145,7 +115,8 @@ $this->load->model('search_model');
   			 $this->load->view('search/friends_add_list.php',$data);
 		}else{
 			
-			echo 'No results found';
+			$this->load->view('common/header');
+		    $this->load->view('search/nosearchresults.php',$data);
 		}		
 }
 
@@ -192,6 +163,10 @@ public function friendadded(){
 		$this->load->view('common/header.php');
 		$this->load->view('search/friendadded.php',$data);
 }
+
+
+
+
 
 
 

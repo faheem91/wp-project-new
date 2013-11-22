@@ -158,7 +158,7 @@
 	<div class="wrapper hp-nus-wrapper">
 		<div id="main" class="iwe">
 			<div class="contain">
-				<form action="<?php echo base_url();?>index.php/Search/search/friendadded" method="post" name="process" id="add-friend">
+				<form action="<?php echo base_url();?>index.php/search/search/friendadded" method="post" name="process" id="add-friend">
 					<div class="iwrite">
 						<div class="iwrite-in">
 							<h1>Invite <strong><?php echo $connection_data->fname ?></strong> to connect on LinkedIn</h1>

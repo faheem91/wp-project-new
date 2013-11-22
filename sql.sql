@@ -80,4 +80,21 @@ FOREIGN KEY (institutionId) REFERENCES institution(institutionId),
 FOREIGN KEY (userId) REFERENCES users(userid)
 );
 
+create table post(
+userID int not null,
+description varchar(200),
+postID int PRIMARY KEY auto_increment,
+FOREIGN KEY (userID) REFERENCES users(userid)
+);
+
+
+create table comment(
+userID int not null,
+postID int  not null,
+description varchar (200),
+commentId int PRIMARY KEY auto_increment,
+FOREIGN KEY (userId) REFERENCES users(userid),
+FOREIGN KEY (postID) REFERENCES post(postID)
+);
+
 

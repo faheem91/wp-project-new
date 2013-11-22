@@ -12,7 +12,7 @@
 				<h2 class="logo-container">
 					<a id="in-logo" class="logo" href="#"> LinkedIn </a>
 				</h2>
-				<form id="global-search" class="global-search voltron voltron-vertical-selector">
+				<form action="<?php echo base_url();?>index.php/search/search/search_keyword" method="post" name="process" id="global-search" class="global-search voltron voltron-vertical-selector">
 					<fieldset>
 						<legend>Find People, Jobs, Companies, and More</legend>
 						<div id="control_gen_2" class="search-scope global-nav-styled-dropdown">
@@ -59,9 +59,86 @@
 			<div class="header-section last-child">
 				<ul id="control_gen_5" class="nav utilities" role="navigation">
 					<li class="nav-item activity-tab"><a class="activity-toggle inbox-alert" href="">Inbox</a></li>
-					<li class="nav-item activity-tab"><a class="activity-toggle notifications-alert" href="">Notifications</a></li>
+					<li class="nav-item activity-tab">
+						<a class="activity-toggle notifications-alert" href="http://localhost/FASTSemester5WPBaseProjectPHP/index.php/connections/connection"> Notifications</a>
+						<div id="notifications" class="activity-container">
+							<div class="activity-drop">
+								<div class="activity-drop-header">
+									<h3>Notifications <span class="sub-nav-header-arrow" role="presentation"></span></h3>
+								</div>
+								<div id="control_gen_25" class="activity-drop-body">
+									<ol class="li-scroll-content">
+									
+										<li class="update first single"> <!-- Class="first" added -->
+											<span class="timestamp">21d</span>
+											<div class="photo"><img width="40" height="40" alt="Full Name" src="images/ghost_profile_40x40_v1.png"></div>
+											<div class="action">
+												<span class="name">Full Name</span>
+												<span class="headline">Student at The University of Hong...</span>
+												<a class="btn-primary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Connect</a>
+												<a class="btn-secondary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Ignore</a>
+												<!--<strong>is now a connection</strong>-->
+											</div>
+											<a href="#" class="notification-link">View Profile</a>
+										</li>
+										<li class="update single"> <!-- "first" is only for first element. it doesnt belong here :p -->
+											<span class="timestamp">21d</span>
+											<div class="photo"><img width="40" height="40" alt="Full Name" src="images/ghost_profile_40x40_v1.png"></div>
+											<div class="action">
+												<span class="name">Full Name</span>
+												<span class="headline">Student at The University of Hong...</span>
+												<strong>is now a connection</strong>
+											</div>
+											<a href="#" class="notification-link">View Profile</a>
+										</li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</li>
 					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="">Add Connections</a></li>
-					<li class="nav-item account-settings-tab"><a class="account-toggle" href="<?php  echo base_url();?>index.php/search/upload_picture"><img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" /></a></li>
+					<li class="nav-item account-settings-tab">
+						<a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture">
+							<img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" />
+						</a>
+						<div id="account-sub-nav" class="account-sub-nav">
+							<div class="account-sub-nav-options">
+								<div class="account-sub-nav-header">
+									<h3>Account &amp; Settings <span class="sub-nav-header-arrow" role="presentation"></span></h3>
+								</div>
+								<div class="account-sub-nav-body">
+									<ul class="account-settings">
+										<li class="self">
+											<div class="account-settings-link">
+												<span class="act-set-row">
+													<span class="act-set-icon">
+														<a href="<?php echo base_url();?>index.php/login/login/do_logout "><span class="act-set-icon-image" role="presentation">
+															<img class="img-defer profile-photo" width="20" height="20" src="<?php echo base_url(); echo $pic_url; ?>" />
+														</span></a>
+													</span>
+													<span class="act-set-name">
+														<a class="act-set-name-split-link" href="<?php echo base_url();?>index.php/login/login/do_logout"><?php echo $fullname ?></a>
+													</span>
+													<span class="act-set-action">
+														<a class="account-submenu-split-link" href="<?php echo base_url();?>index.php/login/login/do_logout">Sign Out</a>
+													</span>
+												</span>
+											</div>
+										</li>
+										<li class="account-type">
+											<a class="account-settings-link">
+												<span class="act-set-row">
+													<span class="act-set-icon"><span class="act-set-icon-image"></span></span>
+													<span class="act-set-name">Account: Basic</span>
+													<span class="act-set-action">Upgrade</span>
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -80,7 +157,7 @@
 					<ul id="profile-sub-nav" class="sub-nav">
 						<li><a href="">Contacts</a></li>
 						<li><a href="">Add Connections</a></li>
-						<li><a href="<?php  echo base_url();?>index.php/search/search/findAlumnai">Find Alumni</a></li>
+						<li><a href="<?php echo base_url();?>index.php/alumni/alumni">Find Alumni</a></li>
 					</ul>
 				</li>
 				<li class="nav-item"><a href="" class="nav-link">Jobs</a></li>
@@ -112,7 +189,7 @@
 								</ul>
 							</div>
 							<div class="header-title">
-								<h2 class="title">FAST-NUCES</h2>
+								<h2 class="title"><?php echo $uni_name ?></h2>
 							</div>
 						</div>
 					</div>
@@ -135,7 +212,7 @@
 							</div>
 						</div>
 						<span class="date-dropdown attended">
-							<select class="start-date date-input">
+							<select onChange="ajax_post();" class="start-date date-input" name="startDate" id="startDate">
 								<option selected="" value="2013">2013</option>
 								<option value="2012">2012</option>
 								<option value="2011">2011</option>
@@ -147,7 +224,7 @@
 								<option value="2005">2005</option>									
 							</select>
 							<span class="date-separator">to</span>
-							<select class="end-date date-input">
+							<select onChange="ajax_post();" class="end-date date-input" name="endDate" id="endDate">
 								<option value="2020">2020</option>
 								<option value="2019">2019</option>
 								<option value="2018">2018</option>
@@ -194,23 +271,23 @@
 												<span class="count">10</span>
 												<label>Pakistan</label>
 											</a>
-											<div class="bar-graph" style="width: 50%;"></div>
+											<div class="bar-graph" style="width: <?php echo $pCount?>%;"></div>
 											<div class="bar-bg"></div>
 										</li>
 										<li class="bucket pinned active not-selected" title="Pakistan">
 											<a class="facet-item">
 												<span class="count">5</span>
-												<label>UAE</label>
+												<label>India</label>
 											</a>
-											<div class="bar-graph" style="width: 25%;"></div>
+											<div class="bar-graph" style="width: <?php echo $iCount?>%;"></div>
 											<div class="bar-bg"></div>
 										</li>
 										<li class="bucket pinned active not-selected" title="Pakistan">
 											<a class="facet-item">
 												<span class="count">5</span>
-												<label>USA</label>
+												<label>France</label>
 											</a>
-											<div class="bar-graph" style="width: 25%;"></div>
+											<div class="bar-graph" style="width: <?php echo $fCount?>%;"></div>
 											<div class="bar-bg"></div>
 										</li>
 									</ul>
@@ -218,38 +295,7 @@
 										<button class="search-facet" type="button"></button>
 									</span>
 								</li>
-								<li class="cmpt-ptc-facet facet has-typeahead first">
-									<h2>Where they live</h2>
-									<ul>
-										<li class="bucket pinned active not-selected" title="Pakistan">
-											<a class="facet-item">
-												<span class="count">10</span>
-												<label>Pakistan</label>
-											</a>
-											<div class="bar-graph" style="width: 50%;"></div>
-											<div class="bar-bg"></div>
-										</li>
-										<li class="bucket pinned active not-selected" title="Pakistan">
-											<a class="facet-item">
-												<span class="count">5</span>
-												<label>UAE</label>
-											</a>
-											<div class="bar-graph" style="width: 25%;"></div>
-											<div class="bar-bg"></div>
-										</li>
-										<li class="bucket pinned active not-selected" title="Pakistan">
-											<a class="facet-item">
-												<span class="count">5</span>
-												<label>USA</label>
-											</a>
-											<div class="bar-graph" style="width: 25%;"></div>
-											<div class="bar-bg"></div>
-										</li>
-									</ul>
-									<span class="collapse-facet-wrapper">
-										<button class="search-facet" type="button"></button>
-									</span>
-								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -280,90 +326,32 @@
 				<div class="cmpt-ptc-people-results cf">
 					<div class="content active">
 						<ul class="people-cards">
+							<?php foreach ($list as $res){ ?>
+							<form action="<?php echo base_url();?>index.php/search/search/redirecttoconfirm" method="post">
+							<input type="hidden" name="friendid" value=<?php echo $res->userid; ?> />
 							<li class="person">
 								<a class="profile-link">
-									<img alt="John Doe" src="images/icon_no_photo_80x80.png" />
+									<img alt="<?php echo $res->fname ?>" src="<?php echo 'uploads/30_'.$res->imageUrl.'.jpg' ?>" />
 								</a>
 								<div class="details">
 									<h3 class="full-name">
 										<div class="distance">
-											<a class="profile-link" href="#">John Doe</a>
+											<a class="profile-link" href="#"><?php echo $res->fname.' '.$res->lname ?></a>
 										</div>
 									</h3>
-									<p class="headline">Senior Software Engineer at TPS Online Pakistan</p>
+									<p class="headline">Student at <?php echo $uni_name ?></p>
 									<ul class="specifics">
-										<li class="first">Pakistan</li>
+										<li class="first"><?php echo $res->Country ?></li>
 									</ul>
 								</div>
 								<div class="ft">
 									<span class="connect-logo"></span>
-									<a class="left-action connect" href="#">Connect</a>
+									<button class="primary-action-button" title="Invite <?php echo $res->fname ?> to connect" type="submit" value="<?php echo $res->userid ?>" name="addignore">Add Connection</button>
 									<span class="divider"> </span>
 								</div>
 							</li>
-							<li class="person">
-								<a class="profile-link">
-									<img alt="John Doe" src="images/icon_no_photo_80x80.png" />
-								</a>
-								<div class="details">
-									<h3 class="full-name">
-										<div class="distance">
-											<a class="profile-link" href="#">John Doe</a>
-										</div>
-									</h3>
-									<p class="headline">Senior Software Engineer at TPS Online Pakistan</p>
-									<ul class="specifics">
-										<li class="first">Pakistan</li>
-									</ul>
-								</div>
-								<div class="ft">
-									<span class="connect-logo"></span>
-									<a class="left-action connect" href="#">Connect</a>
-									<span class="divider"> </span>
-								</div>
-							</li>
-							<li class="person">
-								<a class="profile-link">
-									<img alt="John Doe" src="images/icon_no_photo_80x80.png" />
-								</a>
-								<div class="details">
-									<h3 class="full-name">
-										<div class="distance">
-											<a class="profile-link" href="#">John Doe</a>
-										</div>
-									</h3>
-									<p class="headline">Senior Software Engineer at TPS Online Pakistan</p>
-									<ul class="specifics">
-										<li class="first">Pakistan</li>
-									</ul>
-								</div>
-								<div class="ft">
-									<span class="connect-logo"></span>
-									<a class="left-action connect" href="#">Connect</a>
-									<span class="divider"> </span>
-								</div>
-							</li>
-							<li class="person">
-								<a class="profile-link">
-									<img alt="John Doe" src="images/icon_no_photo_80x80.png" />
-								</a>
-								<div class="details">
-									<h3 class="full-name">
-										<div class="distance">
-											<a class="profile-link" href="#">John Doe</a>
-										</div>
-									</h3>
-									<p class="headline">Senior Software Engineer at TPS Online Pakistan</p>
-									<ul class="specifics">
-										<li class="first">Pakistan</li>
-									</ul>
-								</div>
-								<div class="ft">
-									<span class="connect-logo"></span>
-									<a class="left-action connect" href="#">Connect</a>
-									<span class="divider"> </span>
-								</div>
-							</li>
+						</form>
+						<?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -406,6 +394,72 @@
 			<li><a href="#">Copyright Policy </a></li>
 		</ul>
 	</div> <!-- END: FOOTER -->
+	
+	<script  type="text/javascript">
+	function ajax_post(){
+			document.write("helloworld");
+    var hr = new XMLHttpRequest();
+    // Create some variables we need to send to our PHP file
+    var url = "<?php base_url()?>/index.php/alumni/findAlumni";
+    var thumbnailbox = document.getElementById("container-ptc-people-results");
+    var fn = document.getElementById("startDate").value;
+    var ln = document.getElementById("endDate").value;
+    var vars = "startDate="+fn+"&endDate="+ln;
+    hr.open("POST", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var return_data = hr.responseText;
+		    thumbnailbox.innerHTML = '';
+			for(var o in d){
+
+                if(d[o].src){
+                    thumbnailbox.innerHTML += "<form action='<?php echo base_url();?>index.php/search/search/redirecttoconfirm' method='post'>
+							<input type='hidden' name='friendid' value='"d->userid"' />
+							<li class='person'>
+								<a class='profile-link'>
+									<img alt='"d->fname" + ' ' + "d->lname" src='uploads/30_'.'"d->imageUrl"'.'.jpg' />
+								</a>
+								<div class='details'>
+									<h3 class='full-name'>
+										<div class='distance'>
+											<a class='profile-link' href="#">"d->fname"</a>
+										</div>
+									</h3>
+									<p class='headline'>Student at $uni_name</p>
+									<ul class='specifics'>
+										<li class='first'>"d->Country"</li>
+									</ul>
+								</div>
+								<div class='ft'>
+									<span class='connect-logo'></span>
+									<button class='primary-action-button' title='Invite "d->fname" to connect' type='submit' value='"d->userid" name='addignore'>Add Connection</button>
+									<span class='divider'> </span>
+								</div>
+							</li>
+						</form>";
+                }
+
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+    
+}
+
+
+
+}
+
+</script>
+
+
+
+
+
+
 </body>
 
 </html>

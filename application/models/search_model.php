@@ -19,20 +19,29 @@ class Search_model extends CI_Model{
 	//	$this->db->select('*');
 		$this->db->from('users');
 		$this->db->join('profile', 'users.userid = profile.userId');
-		$this->db->join('education', 'education.userId = profile.userId');
-		$this->db->join('institution','education.institutionId = institution.institutionId');
-		//$this->db->join('job','job.userId = users.userid');
-		//$this->db->join('company','job.CompanyId = company.CompanyId');
+		$this->db->join('education', 'education.userId = profile.userId','left outer');
+		$this->db->join('institution','education.institutionId = institution.institutionId','left outer');
+		$this->db->join('job','job.userId = users.userid','left outer');
+		$this->db->join('company','job.CompanyId = company.CompanyId','left outer');
 		//$this->db->join('education','profile.userId = education.userId');
 		//$this->db->join('institution','education.institutionId = institution.institutionId');
 
-		if($keywords != '' || $keywords_box != '')
+		if($keywords != '')
 		{	
 			// Prep the query
 			$this->db->where('fname', $keywords);
 			$this->db->or_where('lname',$keywords);
 			//$this->db->or_where('companyName', $keywords);
 			$this->db->or_where('name', $keywords);
+	
+		}
+		if($keywords_box != '')
+		{	
+			// Prep the query
+			$this->db->where('fname', $keywords_box);
+			$this->db->or_where('lname',$keywords_box);
+			//$this->db->or_where('companyName', $keywords);
+			$this->db->or_where('name',$keywords_box);
 			
 			
 			
@@ -65,8 +74,6 @@ class Search_model extends CI_Model{
 			// Let's check if there are any results
 			if($query->num_rows >= 1)
 			{
-				
-
 			    return $query->result();
 			   
 			}

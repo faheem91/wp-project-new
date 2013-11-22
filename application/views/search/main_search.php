@@ -28,7 +28,7 @@
 				<h2 class="logo-container">
 					<a id="in-logo" class="logo" href="#"> LinkedIn </a>
 				</h2>
-				<form action="<?php echo base_url();?>index.php/Search/search/search_keyword" method="post" name="process" id="global-search" class="global-search voltron voltron-vertical-selector">
+				<form action="<?php echo base_url();?>index.php/search/search/search_keyword" method="post" name="process" id="global-search" class="global-search voltron voltron-vertical-selector">
 					<fieldset>
 						<legend>Find People, Jobs, Companies, and More</legend>
 						<div id="control_gen_2" class="search-scope global-nav-styled-dropdown">
@@ -174,7 +174,7 @@
 					<ul id="profile-sub-nav" class="sub-nav">
 						<li><a href="">Contacts</a></li>
 						<li><a href="">Add Connections</a></li>
-						<li><a href="<?php echo base_url();?>index.php/search/search/findAlumnai">Find Alumni</a></li>
+						<li><a href="<?php echo base_url();?>index.php/alumni/alumni">Find Alumni</a></li>
 					</ul>
 				</li>
 				<li class="nav-item"><a href="" class="nav-link">Jobs</a></li>
@@ -237,7 +237,7 @@
 							<button class="text-button close-advs show_hide">Close</button>
 						</div>
 						<div id="advs-form-container">
-							<form action="<?php echo base_url();?>index.php/Search/search/search_keyword" method="post" name="process" id="peopleSearchForm" method="" action="" name="peopleSearchForm">
+							<form action="<?php echo base_url();?>index.php/search/search/search_keyword" method="post" name="process" id="peopleSearchForm" method="" action="" name="peopleSearchForm">
 								<fieldset class="text-input-fields">
 									<ol>
 										<li class="keywords">
@@ -346,7 +346,7 @@
 					</div>
 					<div id="results-container">
 
-					<form action="<?php echo base_url();?>index.php/Search/search/redirecttoconfirm" method="post" name="process" id="add-friend">
+					<form action="<?php echo base_url();?>index.php/search/search/redirecttoconfirm" method="post" name="process" id="add-friend">
 						<ol id="results" class="search-results">
 							<?php if($list != NULL) { ?>
 							<?php foreach ($list as $item):?>

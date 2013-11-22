@@ -3917,6 +3917,238 @@ p.check-textarea-message {
 }
 
 
+.post-home.share-box #post-module-neu.upload_preview .post-actions .submit, .post-home.share-box #post-module-neu.active_message .post-actions .submit {
+    display: table-cell;
+}
+.post-home.share-box #post-module-neu.upload_preview .post-actions .settings, .post-home.share-box #post-module-neu.upload_preview .post-actions .submit, .post-home.share-box #post-module-neu.active_message .post-actions .settings, .post-home.share-box #post-module-neu.active_message .post-actions .submit {
+}
+.post-home.share-box .post-actions .submit {
+    padding-left: 10px;
+    vertical-align: middle;
+    width: 520px;
+}
+.post .post-actions {
+    color: #666666;
+    font-size: 12px;
+    margin: 3px 0 0;
+    position: relative;
+}
+.post-home.share-box .post-actions {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    width: 100%;
+}
+.post-home.share-box #post-module-neu.upload_preview .post-actions, .post-home.share-box #post-module-neu.active_message .post-actions {
+    display: table;
+}
+.post .post-actions:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.post .post-message {
+    font-size: 12px;
+    height: 16px;
+    padding: 4px 2px;
+    width: 98.5%;
+}
+.mentions-container .mentions-input {
+    background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #333333;
+    font-size: 13px;
+    line-height: 17px;
+    margin: 0;
+    outline: medium none;
+    overflow: hidden;
+    padding: 9px 10px;
+    position: relative;
+    vertical-align: middle;
+}
+.post-home.share-box .post-message {
+    resize: vertical;
+    width: 512px;
+}
+.post-home.share-box .post-link, .post-home.share-box .post-message {
+    width: 506px;
+}
+.post-home.share-box .post-message {
+    background: none repeat scroll 0 0 #FDFDFD;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
+    color: #333333;
+    font-size: 13px;
+    line-height: 17px;
+    overflow: hidden;
+    padding: 9px 10px;
+    position: relative;
+    transition-duration: 0.2s;
+    transition-property: height, top;
+    transition-timing-function: ease-in-out;
+    vertical-align: middle;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}.post-home.share-box #post-module-neu.enable-slideshare .post-message {
+    resize: none;
+}
+#post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input {
+    margin-bottom: -3px;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}
+.post-home.share-box #post-module-neu.upload_preview .post-message, .post-home.share-box #post-module-neu.active_message .post-message {
+    height: 45px;
+    top: 0;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}
+#post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input {
+    margin-bottom: -3px;
+}
+#slick-sharing-cont.post-home.share-box #post-module #post-module-neu.active_message .post-message {
+    height: 45px;
+}
+#slick-sharing-cont.post-home.share-box #post-module #post-module-neu.enable-create-article .post-message, #slick-sharing-cont.post-home.share-box #post-module #post-module-neu.enable-slideshare .post-message {
+    padding-right: 30px;
+    width: 491px;
+}
+
+.mentions-container {
+    background: none repeat scroll 0 0 #FDFDFD;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
+    color: #333333;
+    font-size: 13px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+}
+
+.post-home.share-box #post-module-neu {
+    margin: 15px 0;
+}
+
+.post {
+    margin: 0;
+    padding: 0;
+}
+
+.post-home.share-box .post-module-in {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 0;
+}
+.post-home.share-box .post-module {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    padding: 0;
+    position: static;
+    width: 528px;
+}
+
+#slick-sharing-cont.post-home.share-box #post-module {
+    width: 533px;
+}
+.post-home.share-box {
+    background: radial-gradient(ellipse closest-side at 50% 50% , #FFFFFF, #F3F3F3 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    padding: 15px;
+}
+
+#slick-sharing-cont.post-home.share-box {
+    padding: 0 15px 0 0;
+}
+#feed-nhome .rt-filter-cont {
+    z-index: 2;
+}
+
+
+.feed, .feed.feed-redesign {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 1px #999999;
+    margin-bottom: 10px;
+    position: relative;
+}
+#feed-nhome .filter-cont {
+    border: 0 none;
+    margin-bottom: 0;
+}
+
+.grid-f #content {
+    float: left;
+    width: 646px;
+}
+.post-home.share-box .member-photo {
+    border: 1px solid #DEDEDE;
+    float: left;
+    margin-right: 15px;
+    padding: 0;
+    position: static;
+}
+#slick-sharing-cont.post-home.share-box .member-photo {
+    border-width: 0 1px 0 0;
+    height: 65px;
+    margin-left: 0;
+    margin-top: 15px;
+    width: 65px;
+}
+
+.submit select {
+    float: left;
+    height: 25px;
+    margin: 0 0 0 -10px;
+    padding: 4px;
+    width: 450px;
+}
+.submit #share-submit{
+    float: right;
+}
+
 
 
 

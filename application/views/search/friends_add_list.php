@@ -130,7 +130,7 @@
 		</form>
 		<div class="pymk">
 			<!-- <h3>People you may know...</h3> -->
-		<form action="<?php echo base_url();?>index.php/Search/search/redirecttoconfirm" method="post" name="process" id="add-friend">
+		<form action="<?php echo base_url();?>index.php/search/search/redirecttoconfirm" method="post" name="process" id="add-friend">
 
 				<ul id="control_gen_15">
 			<?php if($list != NULL) { ?>
