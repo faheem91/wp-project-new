@@ -198,7 +198,7 @@ $data=array(
 	'CompanyId'=>$companyID
 );
 
-$this->db->insert('job',$data);
+$this->db->insert('Job',$data);
 
 
 
@@ -252,7 +252,7 @@ $data=array(
 
 
 	);
-$this->db->insert('job',$data);
+$this->db->insert('Job',$data);
 
 
 
