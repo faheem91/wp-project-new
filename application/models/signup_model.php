@@ -179,7 +179,7 @@ if($statuschooser=="employed")
 			'companySize'=>1
 			);
 
-		$this->db->insert('company',$data);
+		$this->db->insert('Company',$data);
 		$this->db->where('companyName', $company);
 		$query = $this->db->get('company');
 		if($query->num_rows == 1){
@@ -230,7 +230,7 @@ $data=array(
 	'companySize'=>1
 	);
 
-$this->db->insert('company',$data);
+$this->db->insert('Company',$data);
 
 		$this->db->where('companyName', $mostRecentCompany);
 			$query = $this->db->get('company');
