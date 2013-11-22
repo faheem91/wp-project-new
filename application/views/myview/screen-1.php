@@ -1,8 +1,8 @@
-﻿<content="text/html; charset=utf-8" http-equiv="Content-Type" />
+﻿content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <title>World's Largest Professional Network | LinkedIn</title>
 <link rel="shortcut icon" href="images/favicon.ico" />
 </head>
-//yea
+
 <body>
 	<div class="top">
 	

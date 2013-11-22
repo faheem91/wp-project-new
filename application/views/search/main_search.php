@@ -174,7 +174,7 @@
 					<ul id="profile-sub-nav" class="sub-nav">
 						<li><a href="">Contacts</a></li>
 						<li><a href="">Add Connections</a></li>
-						<li><a href="<?php echo base_url();?>index.php/alumni/alumni">Find Alumni</a></li>
+						<li><a href="<?php echo base_url();?>index.php/search/search/findAlumnai">Find Alumni</a></li>
 					</ul>
 				</li>
 				<li class="nav-item"><a href="" class="nav-link">Jobs</a></li>
