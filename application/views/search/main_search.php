@@ -163,7 +163,7 @@
 	<div id="responsive-nav-scrollable" class="responsive-nav">
 		<div class="wrapper">
 			<ul id="control_gen_6" class="nav main-nav" role="navigation">
-				<li class="nav-item"><a href="" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="<?php echo base_url();?>index.php/home/home" class="nav-link">Home</a></li>
 				<li class="nav-item"><a href="" class="nav-link">Profile</a>
 					<ul id="profile-sub-nav" class="sub-nav">
 						<li><a href="">Edit Profile</a></li>

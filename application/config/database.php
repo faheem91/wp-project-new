@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '205.204.72.199';
-$db['default']['username'] = 'x2deezon_user';
+$db['default']['username'] = 'x2deezon_newuser';
 $db['default']['password'] = 'Hamza123!';
-$db['default']['database'] = 'x2deezon_wp_db';
+$db['default']['database'] = 'x2deezon_newdb';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

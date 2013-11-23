@@ -41,7 +41,7 @@ PRIMARY KEY (userId1,userId2)
 );
 
 
-create table Company(
+create table company(
 CompanyId int NOT NULL AUTO_INCREMENT primary key,
 companyName varchar(30) not null,
 companySize int
@@ -50,7 +50,7 @@ companySize int
 
 
 
-create table Job(
+create table job(
 userId int,
 FOREIGN KEY (userId) REFERENCES users(userid),
 jobTitle varchar(30),
@@ -64,7 +64,7 @@ FOREIGN KEY (CompanyId) REFERENCES company(CompanyId)
 
 
 
-create table Institution(
+create table institution(
 institutionId int not null auto_increment primary key,
 name varchar (20),
 description varchar(100)
@@ -84,6 +84,8 @@ create table post(
 userID int not null,
 description varchar(200),
 postID int PRIMARY KEY auto_increment,
+sharewith bool not null default true,
+picturepath varchar(50) default null,
 FOREIGN KEY (userID) REFERENCES users(userid)
 );
 

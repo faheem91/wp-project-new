@@ -27,6 +27,7 @@ $this->db->update('users', $data);
 
 
 
+
 	}
 
 
@@ -166,7 +167,7 @@ if($statuschooser=="employed")
 
 
 		$this->db->where('companyName', $company);
-		$query = $this->db->get('Company');
+		$query = $this->db->get('company');
 	if($query->num_rows == 1){
 			// If there is a user, then create session data
 			$row = $query->row();
@@ -179,9 +180,9 @@ if($statuschooser=="employed")
 			'companySize'=>1
 			);
 
-		$this->db->insert('Company',$data);
+		$this->db->insert('company',$data);
 		$this->db->where('companyName', $company);
-		$query = $this->db->get('Company');
+		$query = $this->db->get('company');
 		if($query->num_rows == 1){
 					// If there is a user, then create session data
 					$row = $query->row();
@@ -198,7 +199,7 @@ $data=array(
 	'CompanyId'=>$companyID
 );
 
-$this->db->insert('Job',$data);
+$this->db->insert('job',$data);
 
 
 
@@ -217,7 +218,7 @@ else if($statuschooser=="Job_Seeker")
 
 
 		$this->db->where('companyName', $mostRecentCompany);
-			$query = $this->db->get('Company');
+			$query = $this->db->get('company');
 if($query->num_rows == 1){
 			// If there is a user, then create session data
 			$row = $query->row();
@@ -230,10 +231,10 @@ $data=array(
 	'companySize'=>1
 	);
 
-$this->db->insert('Company',$data);
+$this->db->insert('company',$data);
 
 		$this->db->where('companyName', $mostRecentCompany);
-			$query = $this->db->get('Company');
+			$query = $this->db->get('company');
 if($query->num_rows == 1){
 			// If there is a user, then create session data
 			$row = $query->row();
@@ -252,7 +253,7 @@ $data=array(
 
 
 	);
-$this->db->insert('Job',$data);
+$this->db->insert('job',$data);
 
 
 

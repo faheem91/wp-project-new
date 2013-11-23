@@ -4150,6 +4150,630 @@ p.check-textarea-message {
 }
 
 
+.post-home.share-box #post-module-neu.upload_preview .post-actions .submit, .post-home.share-box #post-module-neu.active_message .post-actions .submit {
+    display: table-cell;
+}
+.post-home.share-box #post-module-neu.upload_preview .post-actions .settings, .post-home.share-box #post-module-neu.upload_preview .post-actions .submit, .post-home.share-box #post-module-neu.active_message .post-actions .settings, .post-home.share-box #post-module-neu.active_message .post-actions .submit {
+}
+.post-home.share-box .post-actions .submit {
+    padding-left: 10px;
+    vertical-align: middle;
+    width: 520px;
+}
+.post .post-actions {
+    color: #666666;
+    font-size: 12px;
+    margin: 3px 0 0;
+    position: relative;
+}
+.post-home.share-box .post-actions {
+    margin-bottom: 15px;
+    margin-top: 10px;
+    width: 100%;
+}
+.post-home.share-box #post-module-neu.upload_preview .post-actions, .post-home.share-box #post-module-neu.active_message .post-actions {
+    display: table;
+}
+.post .post-actions:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.post .post-message {
+    font-size: 12px;
+    height: 16px;
+    padding: 4px 2px;
+    width: 98.5%;
+}
+.mentions-container .mentions-input {
+    background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #333333;
+    font-size: 13px;
+    line-height: 17px;
+    margin: 0;
+    outline: medium none;
+    overflow: hidden;
+    padding: 9px 10px;
+    position: relative;
+    vertical-align: middle;
+    width: 400px;
+}
+.post-home.share-box .post-message {
+    resize: vertical;
+    width: 512px;
+}
+.post-home.share-box .post-link, .post-home.share-box .post-message {
+    width: 506px;
+}
+.post-home.share-box .post-message {
+    background: none repeat scroll 0 0 #FDFDFD;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
+    color: #333333;
+    font-size: 13px;
+    line-height: 17px;
+    overflow: hidden;
+    padding: 9px 10px;
+    position: relative;
+    transition-duration: 0.2s;
+    transition-property: height, top;
+    transition-timing-function: ease-in-out;
+    vertical-align: middle;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}.post-home.share-box #post-module-neu.enable-slideshare .post-message {
+    resize: none;
+}
+#post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input {
+    margin-bottom: -3px;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}
+.post-home.share-box #post-module-neu.upload_preview .post-message, .post-home.share-box #post-module-neu.active_message .post-message {
+    height: 45px;
+    top: 0;
+}
+#post-module-neu .mentions-container .post-message, #post-module-neu .mentions-container .post-message.mentions-input, #post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input, #post-module-neu.inactive .mentions-container .post-message, #post-module-neu.inactive .mentions-container .post-message.mentions-input {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: none;
+    margin-top: 0 !important;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 40px;
+    top: 0 !important;
+    width: 491px;
+}
+#post-module-neu.active_message .mentions-container .post-message, #post-module-neu.active_message .mentions-container .post-message.mentions-input {
+    margin-bottom: -3px;
+}
+#slick-sharing-cont.post-home.share-box #post-module #post-module-neu.active_message .post-message {
+    height: 45px;
+}
+#slick-sharing-cont.post-home.share-box #post-module #post-module-neu.enable-create-article .post-message, #slick-sharing-cont.post-home.share-box #post-module #post-module-neu.enable-slideshare .post-message {
+    padding-right: 30px;
+    width: 491px;
+}
+
+.mentions-container {
+    background: none repeat scroll 0 0 #FDFDFD;
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1) inset;
+    color: #333333;
+    font-size: 13px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+}
+
+.post-home.share-box #post-module-neu {
+    margin: 15px 0;
+}
+
+.post {
+    margin: 0;
+    padding: 0;
+}
+
+.post-home.share-box .post-module-in {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 0;
+}
+.post-home.share-box .post-module {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    padding: 0;
+    position: static;
+    width: 528px;
+}
+
+#slick-sharing-cont.post-home.share-box #post-module {
+    width: 533px;
+}
+.post-home.share-box {
+    background: radial-gradient(ellipse closest-side at 50% 50% , #FFFFFF, #F3F3F3 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    padding: 15px;
+}
+
+#slick-sharing-cont.post-home.share-box {
+    padding: 0 15px 0 0;
+}
+#feed-nhome .rt-filter-cont {
+    z-index: 2;
+}
+
+
+.feed, .feed.feed-redesign {
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 0 1px #999999;
+    margin-bottom: 10px;
+    position: relative;
+}
+#feed-nhome .filter-cont {
+    border: 0 none;
+    margin-bottom: 0;
+}
+
+.grid-f #content {
+    float: left;
+    width: 646px;
+}
+.post-home.share-box .member-photo {
+    border: 1px solid #DEDEDE;
+    float: left;
+    margin-right: 15px;
+    padding: 0;
+    position: static;
+}
+#slick-sharing-cont.post-home.share-box .member-photo {
+    border-width: 0 1px 0 0;
+    height: 65px;
+    margin-left: 0;
+    margin-top: 15px;
+    width: 65px;
+}
+
+.submit select {
+    float: left;
+    height: 25px;
+    margin: 0 0 0 -10px;
+    padding: 4px;
+    width: 450px;
+}
+.submit #share-submit{
+    float: right;
+}
+
+#feed-content {
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.feed-redesign #my-feed-post {
+    margin: 0;
+}
+.feed .feed-item {
+    background: url("images/bg_grey_dotted_h-line_3x1.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    color: #000000;
+    padding: 10px 3px;
+}
+.feed .feed-item, .feed .feed-body {
+    overflow: hidden;
+}
+.feed.feed-redesign .feed-item {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #EAEAEA;
+    padding: 10px 0;
+}
+.feed-redesign #my-feed-post .feed-item {
+    border-bottom: 1px solid #EAEAEA;
+}
+.nus-feed-container .feed-item, .feed-redesign #my-feed-post.katify .feed-item {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-right: 0 none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
+    color: #333333;
+    font-size: 13px;
+    height: auto;
+    line-height: 17px;
+    margin: 0 0 20px;
+    min-height: 68px;
+    padding: 20px 0 0;
+    position: static;
+}
+.nus-feed-container .feed-item, .feed-redesign #my-feed-post.katify .feed-item {
+    font-family: sans-serif;
+}
+
+.os-win .nus-feed-container .feed-item, .os-win .feed-redesign #my-feed-post.katify .feed-item {
+    font-family: Arial,sans-serif;
+}
+
+.nus-feed-container .feed-item a, .feed-redesign #my-feed-post.katify .feed-item a {
+    color: #0077B5;
+    font-size: 13px;
+    padding-top: 0;
+}
+.feed .feed-photo {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    margin: 2px 10px 0 7px;
+}
+.feed.feed-redesign .feed-photo {
+    margin: 2px 10px 0 0;
+}
+.feed.feed-redesign .photo {
+    border-color: #EAEAEA;
+}
+.nus-feed-container .feed-item .feed-photo.photo, .feed-redesign #my-feed-post.katify .feed-item .feed-photo.photo {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #EEEEEE #EEEEEE #EEEEEE -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px 0;
+    height: 65px;
+    margin-right: 15px;
+    padding: 0;
+    width: 65px;
+}
+
+.feed .feed-item, .feed .feed-body {
+    overflow: hidden;
+}
+.feed .feed-content {
+    font-size: 13px;
+    margin-right: 20px;
+    margin-top: 4px;
+}
+
+.nus-feed-container .feed-item .feed-content, .feed-redesign #my-feed-post.katify .feed-item .feed-content {
+    line-height: 17px;
+    margin-right: 20px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.nus-feed-container .feed-item .annotated-body, .feed-redesign #my-feed-post.katify .feed-item .annotated-body {
+    display: inline;
+}
+
+.nus-feed-container .feed-item a, .feed-redesign #my-feed-post.katify .feed-item a {
+    color: #0077B5;
+    font-size: 13px;
+    padding-top: 0;
+}
+.feed .share-object, .feed .member-position {
+    margin-top: 10px;
+    overflow: hidden;
+    width: auto;
+}
+.nus-feed-container .feed-item .share-object, .feed-redesign #my-feed-post.katify .feed-item .share-object {
+    margin-top: 10px;
+}
+
+.nus-feed-container .feed-item .feed-content .share-object, .feed-redesign #my-feed-post.katify .feed-item .feed-content .share-object {
+    border-left: 0 none;
+}
+.nus-feed-container .feed-item .share-object, .feed-redesign #my-feed-post.katify .feed-item .share-object {
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+.nus-feed-container .feed-item .share-object .properties, .feed-redesign #my-feed-post.katify .feed-item .share-object .properties {
+    overflow: hidden;
+}
+.feed .share-object .share-desc {
+    margin-top: 4px;
+}
+.nus-feed-container .feed-item .share-object .share-desc, .feed-redesign #my-feed-post.katify .feed-item .share-object .share-desc {
+    color: #666666;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 17px;
+}
+.nus-feed-container .feed-item.linkedin-profile-update .share-desc, .feed-redesign #my-feed-post.katify .feed-item.linkedin-profile-update .share-desc {
+    display: inline;
+}
+
+.os-win .nus-feed-container .feed-item .share-object .share-desc, .os-win .feed-redesign #my-feed-post.katify .feed-item .share-object .share-desc {
+    font-family: Arial,sans-serif;
+}
+
+.nus-feed-container .feed-item .share-object .properties .share-title, .nus-feed-container .feed-item .share-object .properties .title, .nus-feed-container .feed-item .share-object .properties .property-label, .feed-redesign #my-feed-post.katify .feed-item .share-object .properties .share-title, .feed-redesign #my-feed-post.katify .feed-item .share-object .properties .title, .feed-redesign #my-feed-post.katify .feed-item .share-object .properties .property-label {
+    color: #333333;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 17px;
+}
+.nus-feed-container .feed-item a, .feed-redesign #my-feed-post.katify .feed-item a {
+    color: #0077B5;
+    font-size: 13px;
+    padding-top: 0;
+}
+.nus-feed-container .feed-item .share-object .properties a, .feed-redesign #my-feed-post.katify .feed-item .share-object .properties a {
+    color: #0077B5;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.nus-feed-container .feed-item .linkedin-profile-snapshot .properties .share-desc a:link, .feed-redesign #my-feed-post.katify .feed-item .linkedin-profile-snapshot .properties .share-desc a:link {
+    color: #666666;
+}
+.feed .feed-item-meta {
+    clear: both;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.nus-feed-container .feed-item .feed-item-meta, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta {
+    border: 0 none;
+    clear: left;
+    margin: 7px 0 0;
+    padding: 0;
+}
+
+.nus-feed-container .feed-item .feed-item-meta .feed-actions li, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta .feed-actions li {
+    background: url("images/icon_bullet_grey2_4x4.png") no-repeat scroll 100% 6px rgba(0, 0, 0, 0);
+    font-size: 13px;
+    margin: 0 10px 0 0;
+    padding: 0 14px 0 0;
+    float: left;
+}
+.feed .show-like .like {
+    display: inline;
+}
+.feed.feed-redesign .feed-actions a, .feed.feed-redesign .feed-item:hover .chron .feed-actions a {
+    color: #888888;
+}
+.nus-feed-container .feed-item a, .feed-redesign #my-feed-post.katify .feed-item a {
+    color: #0077B5;
+    font-size: 13px;
+    padding-top: 0;
+}
+.nus-feed-container .feed-item .feed-item-meta .feed-actions li a, .nus-feed-container .feed-item .feed-item-meta .feed-actions li .nus-timestamp, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta .feed-actions li a, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta .feed-actions li .nus-timestamp {
+    color: #8B8B8B;
+    font-size: 13px;
+}
+
+.nus-feed-container .feed-item .feed-item-meta .feed-actions li a, .nus-feed-container .feed-item .feed-item-meta .feed-actions li .nus-timestamp, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta .feed-actions li a, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta .feed-actions li .nus-timestamp {
+    color: #8B8B8B;
+    font-size: 13px;
+}
+.feed .nus-timestamp {
+    color: #666666;
+    float: left;
+    font-size: 11px;
+    white-space: nowrap;
+}
+.nus-feed-container .feed-item .feed-item-meta .nus-timestamp, .feed-redesign #my-feed-post.katify .feed-item .feed-item-meta .nus-timestamp {
+    color: #8B8B8B;
+    font-size: 13px;
+    margin-left: 0;
+    padding: 0 14px 0 0;
+}
+.feed.feed-redesign .comments {
+    background-color: #EBF5FB;
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 5px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.nus-feed-container .feed-item .comments, .feed-redesign #my-feed-post.katify .feed-item .comments {
+    background: none repeat scroll 0 0 #F4F4F4;
+    border-radius: 2px;
+    margin-left: 0;
+    margin-right: 20px;
+    padding: 0;
+}
+.feed .comments li {
+    background: url("/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png") repeat-x scroll 0 100% rgba(0, 0, 0, 0);
+    margin: 0 0 8px;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 3px 8px;
+    position: relative;
+}
+.feed.feed-redesign .comments li {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #D6EAF4;
+    border-top: 1px solid #FFFFFF;
+    margin: 0;
+    padding: 5px 0 7px;
+}
+.nus-feed-container .feed-item .comments li, .feed-redesign #my-feed-post.katify .feed-item .comments li {
+    border-bottom: 0 none;
+    border-top: 0 none;
+    padding-left: 30px;
+}
+
+.nus-feed-container .feed-item .comments li.first, .feed-redesign #my-feed-post.katify .feed-item .comments li.first {
+    border-top: 1px solid #FFFFFF;
+    padding-top: 10px;
+}
+
+.nus-feed-container .feed-item .comments li .bubble, .feed-redesign #my-feed-post.katify .feed-item .comments li .bubble {
+    background: url("images/sprite_pulse_social_v1.png") no-repeat scroll -3px -215px rgba(0, 0, 0, 0);
+    height: 25px;
+    left: 0;
+    margin-left: 7px;
+    margin-right: 0;
+    position: absolute;
+    width: 23px;
+}
+
+.nus-feed-container .feed-item a, .feed-redesign #my-feed-post.katify .feed-item a {
+    color: #0077B5;
+    font-size: 13px;
+    padding-top: 0;
+}
+
+.nus-feed-container .feed-item .comments .feed-photo.photo, .feed-redesign #my-feed-post.katify .feed-item .comments .feed-photo.photo {
+    border: 0 none;
+    height: 30px;
+    margin-left: 0;
+    margin-right: 7px;
+    width: auto;
+}
+.feed.feed-redesign .comments p {
+    overflow: hidden;
+}
+.feed .comments ul p {
+    font-size: 13px;
+    margin: 0;
+    padding-right: 20px;
+    position: relative;
+    top: -3px;
+}
+
+.nus-feed-container .feed-item a, .feed-redesign #my-feed-post.katify .feed-item a {
+    color: #0077B5;
+    font-size: 13px;
+    padding-top: 0;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+.nus-feed-container q, .feed-redesign #my-feed-post.katify q {
+    font-size: 13px;
+}
+.feed .comments q {
+    font-size: 13px;
+}
+.feed .nus-timestamp {
+    color: #666666;
+    float: left;
+    font-size: 11px;
+    white-space: nowrap;
+}
+.feed.feed-redesign .comments .nus-timestamp {
+    display: block;
+}
+.feed .comments .nus-timestamp {
+    float: none;
+    margin: 0;
+}
+.feed.feed-redesign .nus-timestamp {
+    color: #888888;
+}
+
+.feed .comments .form {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    padding: 0 3px;
+}
+.feed.feed-redesign .comments .form {
+    border-top: 1px solid #FFFFFF;
+    padding-top: 5px;
+}
+
+.nus-feed-container .feed-item .comments .form, .feed-redesign #my-feed-post.katify .feed-item .comments .form {
+    border-top: 0 none;
+    overflow: hidden;
+    padding: 5px 9px 7px 10px;
+}
+
+.mentions-typeahead-container {
+    position: absolute;
+    z-index: 100;
+}
+.mentions-typeahead-container .typeahead-results-container {
+    left: 5px !important;
+    min-width: 380px;
+    top: 2px;
+    width: 380px;
+}
+
+
+.home-member-new form .actions {
+    font-size: 100%;
+    margin: 0;
+}
+.feed .comments .actions {
+    font-size: 12px;
+    padding-left: 0;
+    padding-top: 3px;
+}
+
+.nus-feed-container .feed-item .comments .actions, .feed-redesign #my-feed-post.katify .feed-item .comments .actions {
+    display: block;
+    padding-top: 6px;
+}
+.nus-feed-container .feed-item .comments .btn-primary.lu-state-disabled, .nus-feed-container .feed-item .comments .btn-primary.disabled, .nus-feed-container .feed-item .comments .btn-primary[disabled], .feed-redesign #my-feed-post.katify .feed-item .comments .btn-primary.lu-state-disabled, .feed-redesign #my-feed-post.katify .feed-item .comments .btn-primary.disabled, .feed-redesign #my-feed-post.katify .feed-item .comments .btn-primary[disabled] {
+    background-color: #2672AE;
+    box-shadow: none;
+    cursor: default;
+    opacity: 0.6;
+}
+.nus-feed-container .feed-item .comments .actions input, .feed-redesign #my-feed-post.katify .feed-item .comments .actions input {
+    float: right;
+}
+.feed-redesign #my-feed-post, .feed-actions{
+    margin:  0 !important;
+    line-height: inherit !important;
+}
+.feed-actions{
+    float: left;
+}
+.home-member-new form .actions input{
+    width: 60px;
+    height:  20px;
+}
+.home-member-new form .actions{
+    float: right;
+    margin-top:  10px;
+}
 
 
 

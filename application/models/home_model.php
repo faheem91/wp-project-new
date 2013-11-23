@@ -10,11 +10,14 @@ class home_model extends CI_Model{
 	public function insertPost(){
 		$post=$this->security->xss_clean($this->input->post('newPost'));
 		$id=$this->session->userdata('userid');
+		$chooser=$this->input->post('chooser');
+
 
 
 		$data=array(
 			'userID'=>$id,
-			'description'=>$post
+			'description'=>$post,
+			'sharewith'=>$chooser
 			);
 		$this->db->insert('post',$data);
 	}
@@ -23,7 +26,7 @@ class home_model extends CI_Model{
 		$comment=$this->security->xss_clean($comment);
 		$data=array(
 			'userId'=>$userid,
-			'postID'=>$postID,
+			'postID'=>$postId,
 			'description'=>$comment
 
 
@@ -38,15 +41,16 @@ $this->db->insert('comment',$data);
 
 	}
 
-		public function get_friends_posts()
+	public function get_friends_posts()
 	{
 
 		$id = $this->session->userdata('userid');
 
 		$this->db->from('users');
-		$this->db->join('connections', 'users.userid = connections.userId2');
-		$this->db->join('post', 'post.userid = connections.userId2');
-		$this->db->join('comment', 'post.postID = comment.postID');
+		$this->db->join('connections', 'users.userid = connections.userId2 OR connections.userId1 = '.$id);
+
+		$this->db->join('post', 'post.userID = users.userid');
+		//$this->db->join('comment', 'post.postID = comment.postID','left outer');
 		$this->db->where('userId1', $id);
 		$query = $this->db->get();
 			// Let's check if there are any results
@@ -61,10 +65,21 @@ $this->db->insert('comment',$data);
 
 	public function get_comments_from_post($postid)
 	{
-		$this->db->from('post');
-		$this->db->join('comment', 'post.postID = comment.postID');
-		$this->db->where('postID', $postid);
-		$query = $this->db->get();
+		
+		
+		//$this->db->where('postID', $postid);
+		//$this->db->join('comment', 'post.postID = comment.postID');
+		//$this->db->where('postID', $postid);
+		$query = $this->db->query("
+		SELECT *
+		    FROM post JOIN comment  
+		        ON comment.postID = post.postID AND post.postID =".$postid."
+		        JOIN users ON users.userid = comment.userID");
+		/*$this->db->select('comment.userID,comment.postID AS newpostID,comment.description,comment.commentId');
+		$this->db->from('comment');
+		$this->db->join('post', 'comment.newpostID = post.postID');
+		$this->db->where('comment.postID', $postid);*/
+		//$query = $this->db->get();
 			// Let's check if there are any results
 			if($query->num_rows >= 1)
 			{
