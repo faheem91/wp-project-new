@@ -47,11 +47,13 @@ $this->db->insert('comment',$data);
 		$id = $this->session->userdata('userid');
 
 		$this->db->from('users');
-		$this->db->join('connections', 'users.userid = connections.userId2 OR connections.userId1 = '.$id);
+		$this->db->join('connections', 'users.userid = connections.userId2','left outer');
 
 		$this->db->join('post', 'post.userID = users.userid');
 		//$this->db->join('comment', 'post.postID = comment.postID','left outer');
 		$this->db->where('userId1', $id);
+		$this->db->or_where('users.userid', $id);
+
 		$query = $this->db->get();
 			// Let's check if there are any results
 			if($query->num_rows >= 1)
