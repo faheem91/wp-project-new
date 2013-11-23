@@ -207,6 +207,7 @@
 <div id="feed-wrapper">
 <div id="feed-content">
 <ul id="my-feed-post" class="chron katify">
+<?php if ($allposts!=NULL) { ?>
 <?php foreach ($allposts as $row) { ?>
 <li class="feed-item linkedin-profile-update">
 
@@ -240,7 +241,7 @@
 <li class="comment-item first nus-mid-208236160">
 <div class="bubble"></div>
 <a href="#"><img id="" class="feed-photo photo" width="30" height="30" alt="" src="<?php echo 'uploads/30_'.$comment->userID.'.jpg' ?>"></a>
-<p><span class="new-miniprofile-container"><a href="#"><?php echo $comment->fname ?></a></span></p>
+<p><span class="new-miniprofile-container"><a href="#"><?php echo $comment->fname.' '.$comment->lname ?></a></span></p>
 <q id="">
 <span class="commentary"><?php echo $comment->description ?></span>
 </q>
@@ -263,7 +264,7 @@
 
 
 </li>
-<?php } ?>
+<?php }} ?>
 </ul>
 </div>
 </div>
