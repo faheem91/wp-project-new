@@ -7,7 +7,7 @@
 	<div class="top">
 	
 		<div class="wrapper">
-			<a href="default_page.html" class="logo">LinkedIn</a>
+			<a href="index.php" class="logo">LinkedIn</a>
 			<ul class="top-navigation">
 			<li><a href="<?php echo base_url('index.php/login/login/what');?>">What is LinkedIn?</a></li>
 			<li><a href="<?php echo base_url('index.php/signup/signup');?>">Join Today</a></li>
@@ -39,7 +39,7 @@
 							<label for="password">Password:</label><input id="password" name="password" type="password" />
 							<small>6 or more characters</small> <br /><br />
 							<input type="submit" value="Join Now" />
-							<small>Already on LinkedIn? <a href="default_page.html">Sign in.</a></small>
+							<small>Already on LinkedIn? <a href="index.php">Sign in.</a></small>
 						</form>			
 					</div>
 				</div>
@@ -58,47 +58,47 @@
 				
 				<p id="member-directory">
 					LinkedIn member directory: 
-					<a href="default_page.html">a </a>
-					<a href="default_page.html">b </a>
-					<a href="default_page.html">c </a>
-					<a href="default_page.html">d </a>
-					<a href="default_page.html">e </a>
-					<a href="default_page.html">f </a>
-					<a href="default_page.html">g </a>
-					<a href="default_page.html">h </a>
-					<a href="default_page.html">i </a>
-					<a href="default_page.html">j </a>
-					<a href="default_page.html">k </a>
-					<a href="default_page.html">l </a>
-					<a href="default_page.html">m </a>
-					<a href="default_page.html">n </a>
-					<a href="default_page.html">o </a>
-					<a href="default_page.html">p </a>
-					<a href="default_page.html">q </a>
-					<a href="default_page.html">r </a>
-					<a href="default_page.html">s </a>
-					<a href="default_page.html">t </a>
-					<a href="default_page.html">u </a>
-					<a href="default_page.html">v </a>
-					<a href="default_page.html">w </a>
-					<a href="default_page.html">x </a>
-					<a href="default_page.html">y </a>
-					<a href="default_page.html">z </a>
-					<a href="default_page.html">more </a>
+					<a href="index.php">a </a>
+					<a href="index.php">b </a>
+					<a href="index.php">c </a>
+					<a href="index.php">d </a>
+					<a href="index.php">e </a>
+					<a href="index.php">f </a>
+					<a href="index.php">g </a>
+					<a href="index.php">h </a>
+					<a href="index.php">i </a>
+					<a href="index.php">j </a>
+					<a href="index.php">k </a>
+					<a href="index.php">l </a>
+					<a href="index.php">m </a>
+					<a href="index.php">n </a>
+					<a href="index.php">o </a>
+					<a href="index.php">p </a>
+					<a href="index.php">q </a>
+					<a href="index.php">r </a>
+					<a href="index.php">s </a>
+					<a href="index.php">t </a>
+					<a href="index.php">u </a>
+					<a href="index.php">v </a>
+					<a href="index.php">w </a>
+					<a href="index.php">x </a>
+					<a href="index.php">y </a>
+					<a href="index.php">z </a>
+					<a href="index.php">more </a>
 						
 					<br />
 						
 					Browse members
-					<a href="default_page.html"> by country</a>
+					<a href="index.php"> by country</a>
 				</p>
 			</div>
 			<hr />
 			
 			<p id="statement">
 			*By joining LinkedIn, you agree to LinkedIn's
-			<a href="default_page.html"> User Agreement</a>,
-			<a href="default_page.html"> Privacy Policy</a> and
-			<a href="default_page.html"> Cookie Policy</a>.
+			<a href="index.php"> User Agreement</a>,
+			<a href="index.php"> Privacy Policy</a> and
+			<a href="index.php"> Cookie Policy</a>.
 			</p>
 			
 		</div> <!-- END: BODY-AREA -->	
@@ -106,38 +106,38 @@
 		
 	<div class="footer">
 		<ul class="footer-links">
-			<li class="bold"><a href="default_page.html"><strong>Help Center</strong></a></li>
-			<li><a href="default_page.html">About</a></li>
-			<li><a href="default_page.html">Press</a></li>
-			<li><a href="default_page.html">Blog</a></li>
-			<li><a href="default_page.html">Careers</a></li>
-			<li><a href="default_page.html">Advertising</a></li>
-			<li><a href="default_page.html">Talent Solutions</a></li>
-			<li><a href="default_page.html">Tools</a></li>
-			<li><a href="default_page.html">Mobile</a></li>
-			<li><a href="default_page.html">Developers</a></li>
-			<li><a href="default_page.html">Publishers</a></li>
-			<li><a href="default_page.html">Language</a></li>
-			<li><a href="default_page.html">Slideshare</a></li>
+			<li class="bold"><a href="index.php"><strong>Help Center</strong></a></li>
+			<li><a href="index.php">About</a></li>
+			<li><a href="index.php">Press</a></li>
+			<li><a href="index.php">Blog</a></li>
+			<li><a href="index.php">Careers</a></li>
+			<li><a href="index.php">Advertising</a></li>
+			<li><a href="index.php">Talent Solutions</a></li>
+			<li><a href="index.php">Tools</a></li>
+			<li><a href="index.php">Mobile</a></li>
+			<li><a href="index.php">Developers</a></li>
+			<li><a href="index.php">Publishers</a></li>
+			<li><a href="index.php">Language</a></li>
+			<li><a href="index.php">Slideshare</a></li>
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><a href="default_page.html">LinkedIn Updates</a></li>
-			<li><a href="default_page.html">LinkedIn Influencers </a></li>
-			<li><a href="default_page.html">LinkedIn Jobs </a></li>
-			<li><a href="default_page.html">Jobs Directory </a></li>
-			<li><a href="default_page.html">Company Directory </a></li>
-			<li><a href="default_page.html">Groups Directory </a></li>
-			<li><a href="default_page.html">Title Directory </a></li>
+			<li><a href="index.php">LinkedIn Updates</a></li>
+			<li><a href="index.php">LinkedIn Influencers </a></li>
+			<li><a href="index.php">LinkedIn Jobs </a></li>
+			<li><a href="index.php">Jobs Directory </a></li>
+			<li><a href="index.php">Company Directory </a></li>
+			<li><a href="index.php">Groups Directory </a></li>
+			<li><a href="index.php">Title Directory </a></li>
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
 			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
-			<li><a href="default_page.html">User Agreement </a></li>
-			<li><a href="default_page.html">Privacy Policy </a></li>
-			<li><a href="default_page.html">Community Guidelines </a></li>
-			<li><a href="default_page.html">Cookie Policy </a></li>
-			<li><a href="default_page.html">Copyright Policy </a></li>
+			<li><a href="index.php">User Agreement </a></li>
+			<li><a href="index.php">Privacy Policy </a></li>
+			<li><a href="index.php">Community Guidelines </a></li>
+			<li><a href="index.php">Cookie Policy </a></li>
+			<li><a href="index.php">Copyright Policy </a></li>
 		</ul>
 	</div> <!-- END: FOOTER -->
 </body>

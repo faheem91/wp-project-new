@@ -8,7 +8,7 @@
 	<div class="top">
 	
 		<div class="wrapper">
-			<a href="default_page.html" class="logo">LinkedIn</a>
+			<a href="index.php" class="logo">LinkedIn</a>
 			<ul class="top-navigation">
 			<li><a href="<?php echo base_url('index.php/login/login/what');?>">What is LinkedIn?</a></li>
 			<li><a href="<?php echo base_url('index.php/signup/signup');?>">Join Today</a></li>
@@ -64,38 +64,38 @@
 		
 	<div class="footer">
 		<ul class="footer-links">
-			<li class="bold"><a href="default_page.html"><strong>Help Center</strong></a></li>
-			<li><a href="default_page.html">About</a></li>
-			<li><a href="default_page.html">Press</a></li>
-			<li><a href="default_page.html">Blog</a></li>
-			<li><a href="default_page.html">Careers</a></li>
-			<li><a href="default_page.html">Advertising</a></li>
-			<li><a href="default_page.html">Talent Solutions</a></li>
-			<li><a href="default_page.html">Tools</a></li>
-			<li><a href="default_page.html">Mobile</a></li>
-			<li><a href="default_page.html">Developers</a></li>
-			<li><a href="default_page.html">Publishers</a></li>
-			<li><a href="default_page.html">Language</a></li>
-			<li><a href="default_page.html">Slideshare</a></li>
+			<li class="bold"><a href="index.php"><strong>Help Center</strong></a></li>
+			<li><a href="index.php">About</a></li>
+			<li><a href="index.php">Press</a></li>
+			<li><a href="index.php">Blog</a></li>
+			<li><a href="index.php">Careers</a></li>
+			<li><a href="index.php">Advertising</a></li>
+			<li><a href="index.php">Talent Solutions</a></li>
+			<li><a href="index.php">Tools</a></li>
+			<li><a href="index.php">Mobile</a></li>
+			<li><a href="index.php">Developers</a></li>
+			<li><a href="index.php">Publishers</a></li>
+			<li><a href="index.php">Language</a></li>
+			<li><a href="index.php">Slideshare</a></li>
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><a href="default_page.html">LinkedIn Updates</a></li>
-			<li><a href="default_page.html">LinkedIn Influencers </a></li>
-			<li><a href="default_page.html">LinkedIn Jobs </a></li>
-			<li><a href="default_page.html">Jobs Directory </a></li>
-			<li><a href="default_page.html">Company Directory </a></li>
-			<li><a href="default_page.html">Groups Directory </a></li>
-			<li><a href="default_page.html">Title Directory </a></li>
+			<li><a href="index.php">LinkedIn Updates</a></li>
+			<li><a href="index.php">LinkedIn Influencers </a></li>
+			<li><a href="index.php">LinkedIn Jobs </a></li>
+			<li><a href="index.php">Jobs Directory </a></li>
+			<li><a href="index.php">Company Directory </a></li>
+			<li><a href="index.php">Groups Directory </a></li>
+			<li><a href="index.php">Title Directory </a></li>
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
 			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
-			<li><a href="default_page.html">User Agreement </a></li>
-			<li><a href="default_page.html">Privacy Policy </a></li>
-			<li><a href="default_page.html">Community Guidelines </a></li>
-			<li><a href="default_page.html">Cookie Policy </a></li>
-			<li><a href="default_page.html">Copyright Policy </a></li>
+			<li><a href="index.php">User Agreement </a></li>
+			<li><a href="index.php">Privacy Policy </a></li>
+			<li><a href="index.php">Community Guidelines </a></li>
+			<li><a href="index.php">Cookie Policy </a></li>
+			<li><a href="index.php">Copyright Policy </a></li>
 		</ul>
 	</div> <!-- END: FOOTER -->
 </body>
