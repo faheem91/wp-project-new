@@ -22,7 +22,7 @@ class Search_model extends CI_Model{
 		$this->db->join('education', 'education.userId = profile.userId','left outer');
 		$this->db->join('Institution','education.institutionId = Institution.institutionId','left outer');
 		$this->db->join('Job','Job.userId = users.userid','left outer');
-		$this->db->join('company','Job.CompanyId = company.CompanyId','left outer');
+		$this->db->join('Company','Job.CompanyId = Company.CompanyId','left outer');
 		//$this->db->join('education','profile.userId = education.userId');
 		//$this->db->join('institution','education.institutionId = institution.institutionId');
 
