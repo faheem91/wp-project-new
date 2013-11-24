@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '205.204.72.199';
-$db['default']['username'] = 'x2deezon_newuser';
+$db['default']['hostname'] = '205.204.70.2';
+$db['default']['username'] = 'x5deezon_wpuser';
 $db['default']['password'] = 'Hamza123!';
-$db['default']['database'] = 'x2deezon_newdb';
+$db['default']['database'] = 'x2deezon_wp_project';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
