@@ -185,6 +185,12 @@
 <form id="share-form" class="doc-sharing-form post" method="POST" action="<?php echo base_url()?>/index.php/home/home/updatePost">
 <div id="post-module-neu" class="enable-slideshare mentions-enabled transition active active_message">
 <div id="share-entity-mentions-container" class="mentions-container">
+
+<div  style=" background: url(<?php echo base_url();?>uploads/uploadpic.png); background-repeat:no-repeat;margin-left: 95%;margin-top: 2%;">
+	
+	<input type="file" style="filter: alpha(opacity=0);opacity: 0;" />
+	
+</div>
 <textarea id="postText-postModuleForm" class="post-message mentions-input" cols="40" rows="2" name="newPost" placeholder="Share an update..." data-base-height="15"></textarea>
 </div>
 <div class="post-actions">
@@ -213,6 +219,7 @@
 
 <a href="#"><img id="" class="feed-photo photo" src="<?php echo 'uploads/30_'.$row->imageUrl .'.jpg' ?>" alt="" /></a>
 <div class="feed-body"></div>
+<a href="#" style="float:right">x</a>
 <div class="feed-content">
 <div class="annotated-body">
 <span><strong><a href="#"><?php echo $row->fname.' '.$row->lname ?></a></strong></span>
@@ -235,6 +242,7 @@
 <span class="nus-timestamp">2d ago</span>
 </div>
 <div class="comments">
+	<a href="#" style="float:right; padding-right: 10px">x</a>
 <ul>
 <?php if($row->comments != NULL) { ?>
 <?php foreach ($row->comments as $comment) { ?>
