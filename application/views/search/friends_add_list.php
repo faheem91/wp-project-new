@@ -18,7 +18,7 @@
 				<h2 class="logo-container">
 					<a id="in-logo" class="logo" href="#"> LinkedIn </a>
 				</h2>
-				<form id="global-search" class="global-search voltron voltron-vertical-selector">
+				<form action="<?php echo base_url();?>index.php/search/search/search_keyword" method="post" name="process" id="global-search" class="global-search voltron voltron-vertical-selector">
 					<fieldset>
 						<legend>Find People, Jobs, Companies, and More</legend>
 						<div id="control_gen_2" class="search-scope global-nav-styled-dropdown">
@@ -57,7 +57,7 @@
 					</fieldset>
 					<div class="advanced-search-outer">
 						<div class="advanced-search-inner">
-							<a id="advanced-search" class="advanced-search" href="">Advanced </a>
+							<a id="advanced-search" class="advanced-search" href="<?php echo base_url();?>/index.php/search/search">Advanced </a>
 						</div>
 					</div>
 				</form>
@@ -66,8 +66,49 @@
 				<ul id="control_gen_5" class="nav utilities" role="navigation">
 					<li class="nav-item activity-tab"><a class="activity-toggle inbox-alert" href="">Inbox</a></li>
 					<li class="nav-item activity-tab"><a class="activity-toggle notifications-alert" href="">Notifications</a></li>
-					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="">Add Connections</a></li>
-					<li class="nav-item account-settings-tab"><a class="account-toggle" href=""><img src="images/profilepic.jpg" width="20" height="20" /></a></li>
+					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="<?php echo base_url();?>index.php/connections/connection">Add Connections</a></li>
+										<li class="nav-item account-settings-tab">
+						<a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture">
+							<img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" />
+						</a>
+						<div id="account-sub-nav" class="account-sub-nav">
+							<div class="account-sub-nav-options">
+								<div class="account-sub-nav-header">
+									<h3>Account &amp; Settings <span class="sub-nav-header-arrow" role="presentation"></span></h3>
+								</div>
+								<div class="account-sub-nav-body">
+									<ul class="account-settings">
+										<li class="self">
+											<div class="account-settings-link">
+												<span class="act-set-row">
+													<span class="act-set-icon">
+														<a href="<?php echo base_url();?>index.php/login/login/do_logout "><span class="act-set-icon-image" role="presentation">
+															<img class="img-defer profile-photo" width="20" height="20" src="<?php echo base_url(); echo $pic_url; ?>" />
+														</span></a>
+													</span>
+													<span class="act-set-name">
+														<a class="act-set-name-split-link" href="<?php echo base_url();?>index.php/login/login/do_logout"><?php echo $fullname ?></a>
+													</span>
+													<span class="act-set-action">
+														<a class="account-submenu-split-link" href="<?php echo base_url();?>index.php/login/login/do_logout">Sign Out</a>
+													</span>
+												</span>
+											</div>
+										</li>
+										<li class="account-type">
+											<a class="account-settings-link">
+												<span class="act-set-row">
+													<span class="act-set-icon"><span class="act-set-icon-image"></span></span>
+													<span class="act-set-name">Account: Basic</span>
+													<span class="act-set-action">Upgrade</span>
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</li>		
 				</ul>
 			</div>
 		</div>
@@ -86,7 +127,7 @@
 					<ul id="profile-sub-nav" class="sub-nav">
 						<li><a href="">Contacts</a></li>
 						<li><a href="">Add Connections</a></li>
-						<li><a href="">Find Alumni</a></li>
+						<li><a href="<?php echo base_url();?>index.php/alumni/alumni">Find Alumni</a></li>
 					</ul>
 				</li>
 				<li class="nav-item"><a href="" class="nav-link">Jobs</a></li>
@@ -193,7 +234,7 @@
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
+			<li><img src="<?php echo base_url();?>/assets/css/images/logo-footer.png" alt="Footer Logo" /></li>
 			<li><a href="#">User Agreement </a></li>
 			<li><a href="#">Privacy Policy </a></li>
 			<li><a href="#">Community Guidelines </a></li>

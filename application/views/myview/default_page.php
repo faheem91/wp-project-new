@@ -98,7 +98,7 @@
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
+			<li><img src="<?php echo base_url();?>/assets/css/images/logo-footer.png" alt="Footer Logo" /></li>
 			<li><a href="#">User Agreement </a></li>
 			<li><a href="#">Privacy Policy </a></li>
 			<li><a href="#">Community Guidelines </a></li>

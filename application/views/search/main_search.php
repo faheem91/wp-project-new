@@ -67,7 +67,7 @@
 					</fieldset>
 					<div class="advanced-search-outer">
 						<div class="advanced-search-inner">
-							<a id="advanced-search" class="advanced-search" href="">Advanced </a>
+							<a id="advanced-search" class="advanced-search" href="<?php echo base_url();?>/index.php/search/search">Advanced </a>
 						</div>
 					</div>
 				</form>
@@ -112,7 +112,7 @@
 						</div>
 					</li>
 
-					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="">Add Connections</a></li>
+					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="<?php echo base_url();?>index.php/connections/connection">Add Connections</a></li>
 					<!--<li class="nav-item account-settings-tab"><a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture"><img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" /></a></li> -->
 					<li class="nav-item account-settings-tab">
 						<a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture">
@@ -421,7 +421,7 @@
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
+			<li><img src="<?php echo base_url();?>/assets/css/images/logo-footer.png" alt="Footer Logo" /></li>
 			<li><a href="#">User Agreement </a></li>
 			<li><a href="#">Privacy Policy </a></li>
 			<li><a href="#">Community Guidelines </a></li>

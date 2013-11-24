@@ -51,7 +51,7 @@
 					</fieldset>
 					<div class="advanced-search-outer">
 						<div class="advanced-search-inner">
-							<a id="advanced-search" class="advanced-search" href="">Advanced </a>
+							<a id="advanced-search" class="advanced-search" href="<?php echo base_url();?>/index.php/search/search">Advanced </a>
 						</div>
 					</div>
 				</form>
@@ -96,7 +96,7 @@
 							</div>
 						</div>
 					</li>
-					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="">Add Connections</a></li>
+					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="<?php echo base_url();?>index.php/connections/connection">Add Connections</a></li>
 					<li class="nav-item account-settings-tab">
 						<a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture">
 							<img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" />
@@ -268,26 +268,26 @@
 									<ul>
 										<li class="bucket pinned active not-selected" title="Pakistan">
 											<a class="facet-item">
-												<span class="count">10</span>
+												<span class="count"><?php echo $pCount?></span>
 												<label>Pakistan</label>
 											</a>
-											<div class="bar-graph" style="width: <?php echo $pCount?>%;"></div>
+											<div class="bar-graph" style="width: <?php echo $pCountPercent?>%;"></div>
 											<div class="bar-bg"></div>
 										</li>
 										<li class="bucket pinned active not-selected" title="Pakistan">
 											<a class="facet-item">
-												<span class="count">5</span>
+												<span class="count"><?php echo $iCount?></span>
 												<label>India</label>
 											</a>
-											<div class="bar-graph" style="width: <?php echo $iCount?>%;"></div>
+											<div class="bar-graph" style="width: <?php echo $iCountPercent?>%;"></div>
 											<div class="bar-bg"></div>
 										</li>
 										<li class="bucket pinned active not-selected" title="Pakistan">
 											<a class="facet-item">
-												<span class="count">5</span>
+												<span class="count"><?php echo $fCount?></span>
 												<label>France</label>
 											</a>
-											<div class="bar-graph" style="width: <?php echo $fCount?>%;"></div>
+											<div class="bar-graph" style="width: <?php echo $fCountPercent?>%;"></div>
 											<div class="bar-bg"></div>
 										</li>
 									</ul>
@@ -306,7 +306,7 @@
 				<div class="cmpt-ptc-status-bar cf">
 					<div class="call-out-arrow"></div>
 					<div class="results-wrapper">
-						<span class="num-results-label">520 students &amp; alumni found</span>
+						<span class="num-results-label"><?php echo $total_count ?> students &amp; alumni found</span>
 						<span class="hide-connections-wrapper">
 							<input id="hide-my-connections" type="checkbox" name="hide-my-connections" />
 							<label for="hide-my-connections">Hide my connections</label>
@@ -326,7 +326,7 @@
 				<div class="cmpt-ptc-people-results cf">
 					<div class="content active">
 						<ul class="people-cards">
-							<?php foreach ($list as $res){ ?>
+							<?php if($list!=NULL){foreach ($list as $res){ ?>
 							<form action="<?php echo base_url();?>index.php/search/search/redirecttoconfirm" method="post">
 							<input type="hidden" name="friendid" value=<?php echo $res->userid; ?> />
 							<li class="person">
@@ -351,7 +351,7 @@
 								</div>
 							</li>
 						</form>
-						<?php } ?>
+						<?php }} ?>
 						</ul>
 					</div>
 				</div>
@@ -386,7 +386,7 @@
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
+			<li><img src="<?php echo base_url();?>/assets/css/images/logo-footer.png" alt="Footer Logo" /></li>
 			<li><a href="#">User Agreement </a></li>
 			<li><a href="#">Privacy Policy </a></li>
 			<li><a href="#">Community Guidelines </a></li>

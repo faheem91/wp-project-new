@@ -126,6 +126,30 @@ $this->load->model('search_model');
 public function redirecttoconfirm(){
 
 $choice = $this->input->post('addignore');
+if($this->session->userdata('username')){
+			$this->load->model('signup_model');
+		// Validate the user can login
+		$id = $this->signup_model->getProfileImage();
+			
+				$data["pic_url"]='uploads/30_'.$id.'.jpg';
+				
+				$fname=$this->session->userdata('fname');
+				$lname=$this->session->userdata('lname');
+				$fullname=$fname." ".$lname;
+				//$another=base_url();
+				//$anotherData='http://'.$another.$data["pic_url"];
+
+				$data["fullname"]=$fullname;
+				
+				$data["list"]=NULL;
+
+		}else{
+			$data['msg'] = $msg;
+			$data['heading'] = "Login";
+			$this->load->view('common/header');
+			//$this->load->view('loginView/login_view', $data)
+			$this->load->view('myview/default_main_page.php');
+		}
 	if($choice != 'Connect')
 	{
 		
@@ -151,14 +175,37 @@ $choice = $this->input->post('addignore');
 public function friendadded(){
 	
 	$this->load->model('search_model');
+	if($this->session->userdata('username')){
+			$this->load->model('signup_model');
+		// Validate the user can login
+		$id = $this->signup_model->getProfileImage();
+			
+				$data["pic_url"]='uploads/30_'.$id.'.jpg';
+				
+				$fname=$this->session->userdata('fname');
+				$lname=$this->session->userdata('lname');
+				$fullname=$fname." ".$lname;
+				//$another=base_url();
+				//$anotherData='http://'.$another.$data["pic_url"];
 
+				$data["fullname"]=$fullname;
+				
+				$data["list"]=NULL;
+
+		}else{
+			$data['msg'] = $msg;
+			$data['heading'] = "Login";
+			$this->load->view('common/header');
+			//$this->load->view('loginView/login_view', $data)
+			$this->load->view('myview/default_main_page.php');
+		}
 	if($this->search_model->add_friend())
 	{
-		$data['message'] = 'Added to network.';
+		$data['message'] = 'Connect request sent!';
 	}
 	else
 	{
-		$data['message'] = 'Already connected. Cannot add.';
+		$data['message'] = "Cannot add! The person is already connected with you or has your request pending!";
 	}
 		$this->load->view('common/header.php');
 		$this->load->view('search/friendadded.php',$data);

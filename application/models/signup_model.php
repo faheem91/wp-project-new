@@ -56,8 +56,11 @@ return "default";
 
 public function validate(){
 		// grab user input
+		$this->load->helper('security');
+
 		$username = $this->security->xss_clean($this->input->post('email'));
 		$password = $this->security->xss_clean($this->input->post('password'));
+		//$password = do_hash($password);
 		$firstname=$this->security->xss_clean($this->input->post('firstName'));
 		$lastname=$this->security->xss_clean($this->input->post('lastName'));
 		// Prep the query

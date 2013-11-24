@@ -101,17 +101,24 @@ class Search_model extends CI_Model{
 		$friendid = $this->input->post('userid');
 		$userid = $this->session->userdata('userid');
 		
-		
+		$this->db->from('connections');
+		$this->db->where('userId1',$userid);
+		$this->db->where('userId2',$friendid);
+		$query = $this->db->get();
+		if($query->num_rows >= 1)
+		{
+			return false;
+		}
 	//	echo $this->input->post('userid');
 		$data = array(
 			'userId1' => $userid,
 			'userId2' => $friendid
 		);
-		if($this->db->insert('requests', $data))
-		{
-			return true;
-		}
-		return false;
+		$this->db->db_debug = FALSE;
+
+		$this->db->insert('requests',$data);
+
+		return ($this->db->affected_rows() != 1) ? false : true;
 		
 		
 	}

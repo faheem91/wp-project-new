@@ -19,7 +19,7 @@ $this->load->helper('url');
 				$this->load->model('signup_model');
 		// Validate the user can login
 		$id = $this->signup_model->getProfileImage();
-		$date1=2007;
+		$date1=2006;
 		$date2=2017;
 			$fname=$this->session->userdata('fname');
 				$lname=$this->session->userdata('lname');
@@ -31,13 +31,14 @@ $this->load->helper('url');
 			$data["pic_url"]='uploads/30_'.$id.'.jpg';
 			$this->load->model('alumni_model');
 			$x = $this->alumni_model->get_current_school($date1,$date2);
-			$data['list'] = $x->result();
+			
 			$pCount=0;
 			$iCount=0;
 			$fCount=0;
 
 			if($x!=null)
 			{
+				$data['list'] = $x->result();
 				$total_alumni = $x->num_rows;
 				foreach($x->result() as $school)
 				{
@@ -57,16 +58,41 @@ $this->load->helper('url');
 					
 				}
 				$total_uni = $pCount + $iCount + $fCount;
-				$pCount = ($pCount/$total_uni)*100;
-				$iCount = ($iCount/$total_uni)*100;
-				$fCount = ($fCount/$total_uni)*100;
+				$data['total_count'] = $total_uni;	
 				$data['pCount'] = $pCount;
 				$data['iCount'] = $iCount;
 				$data['fCount'] = $fCount;
+				$pCount = ($pCount/$total_uni)*100;
+				$iCount = ($iCount/$total_uni)*100;
+				$fCount = ($fCount/$total_uni)*100;
+				$data['pCountPercent'] = $pCount;
+				$data['iCountPercent'] = $iCount;
+				$data['fCountPercent'] = $fCount;
 
 			//$this->alumni_model->get_school_info($x['institutionId']);
 			$this->load->view('common/header');
 			$this->load->view('search/find_Alumni.php',$data);
+		}
+		else
+		{
+			$data['list'] = NULL;
+			$data['uni_name']= "NO DATA";
+			
+					
+				
+				$total_uni = $pCount + $iCount + $fCount;
+				$data['total_count'] = $total_uni;	
+				$data['pCount'] = $pCount;
+				$data['iCount'] = $iCount;
+				$data['fCount'] = $fCount;
+			
+				$data['pCountPercent'] = $pCount;
+				$data['iCountPercent'] = $iCount;
+				$data['fCountPercent'] = $fCount;
+
+			//$this->alumni_model->get_school_info($x['institutionId']);
+			$this->load->view('common/header');
+			//$this->load->view('search/find_Alumni.php',$data);
 		}
 		}
 		else
@@ -132,18 +158,43 @@ $this->load->helper('url');
 					
 				}
 				$total_uni = $pCount + $iCount + $fCount;
-				$pCount = ($pCount/$total_uni)*100;
-				$iCount = ($iCount/$total_uni)*100;
-				$fCount = ($fCount/$total_uni)*100;
+				$data['total_count'] = $total_uni;	
 				$data['pCount'] = $pCount;
 				$data['iCount'] = $iCount;
 				$data['fCount'] = $fCount;
+				$pCount = ($pCount/$total_uni)*100;
+				$iCount = ($iCount/$total_uni)*100;
+				$fCount = ($fCount/$total_uni)*100;
+				$data['pCountPercent'] = $pCount;
+				$data['iCountPercent'] = $iCount;
+				$data['fCountPercent'] = $fCount;
 
 			//$this->alumni_model->get_school_info($x['institutionId']);
 			/*$this->load->view('common/header');
 			$this->load->view('search/find_Alumni.php',$data);
 			*/
-			echo $data;
+			
+		}
+		else
+		{
+			$data['list'] = NULL;		
+			$data['uni_name']= "NO DATA";
+			$data['total_count'] = $total_uni;	
+					
+				
+				$total_uni = $pCount + $iCount + $fCount;
+				$data['total_count'] = $total_uni;	
+				$data['pCount'] = $pCount;
+				$data['iCount'] = $iCount;
+				$data['fCount'] = $fCount;
+				
+				$data['pCountPercent'] = $pCount;
+				$data['iCountPercent'] = $iCount;
+				$data['fCountPercent'] = $fCount;
+
+			//$this->alumni_model->get_school_info($x['institutionId']);
+			$this->load->view('common/header');
+			$this->load->view('search/find_Alumni.php',$data);
 		}
 		}
 		else

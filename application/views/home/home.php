@@ -1,4 +1,8 @@
 <title>Welcome! | LinkedIn</title>
+
+	
+
+
 </head>
 
 
@@ -49,7 +53,7 @@
 					</fieldset>
 					<div class="advanced-search-outer">
 						<div class="advanced-search-inner">
-							<a id="advanced-search" class="advanced-search" href="">Advanced </a>
+							<a id="advanced-search" class="advanced-search" href="<?php echo base_url();?>/index.php/search/search">Advanced </a>
 						</div>
 					</div>
 				</form>
@@ -94,7 +98,7 @@
 						</div>
 					</li>
 
-					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="">Add Connections</a></li>
+					<li class="nav-item activity-tab"><a class="activity-toggle add-connections-btn" href="<?php echo base_url();?>index.php/connections/connection">Add Connections</a></li>
 					<!--<li class="nav-item account-settings-tab"><a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture"><img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" /></a></li> -->
 					<li class="nav-item account-settings-tab">
 						<a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture">
@@ -182,13 +186,14 @@
 <img class="member-photo animated-member-photo" src="<?php echo $big_Pic?>" width="60" height="60" alt="faheem" src="abc" style="margin-top: 15px;" />
 <div id="post-module" class="post-module">
 <div class="post-module-in">
-<form id="share-form" class="doc-sharing-form post" method="POST" action="<?php echo base_url()?>/index.php/home/home/updatePost">
+<form id="share-form" class="doc-sharing-form post" enctype="multipart/form-data" method="POST" action="<?php echo base_url()?>/index.php/home/home/updatePost">
 <div id="post-module-neu" class="enable-slideshare mentions-enabled transition active active_message">
 <div id="share-entity-mentions-container" class="mentions-container">
 
 <div  style=" background: url(<?php echo base_url();?>uploads/uploadpic.png); background-repeat:no-repeat;margin-left: 95%;margin-top: 2%;">
 	
-	<input type="file" style="filter: alpha(opacity=0);opacity: 0;" />
+
+<input id="uploadImage" type="file" accept="image/jpeg" name="image"  style="filter: alpha(opacity=0);opacity: 0;" />
 	
 </div>
 <textarea id="postText-postModuleForm" class="post-message mentions-input" cols="40" rows="2" name="newPost" placeholder="Share an update..." data-base-height="15"></textarea>
@@ -201,6 +206,15 @@
 <option >Share with: Public + Twitter</option>
 </select>
 <input id="share-submit" class="btn-primary" type="submit" value="Share" name="post">
+<img id="uploadPreview" style="display:none;border: 0;
+		border-radius: 3px;
+		-webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, .27);
+		box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, .27);
+        width:300px;
+        height:177px;
+        "/>
+
+
 </div>
 </div>
 </div>
@@ -234,18 +248,22 @@
 </div>
 </div>
 </div>
+<div >
+	<img src="<?php echo base_url();?>uploads/<?php echo $row->picturepath;?>.jpg" style="<?php if($row->picturepath==NULL) echo 'display:none';else echo'display:block';?>" >
+	</div>
 <div class="feed-item-meta">
 <ul class="feed-actions">
 <li class="feed-like"><span class="show-like"><a href="#">Like</a></span></li>
 <li class="feed-comment"><a class="focus-comment-form">Comment</a></li>
 </ul>
-<span class="nus-timestamp">2d ago</span>
-</div>
+<span class="nus-timestamp"><?php echo $row->timeofpost?></span></div>
+
 <div class="comments">
-	<a href="#" style="float:right; padding-right: 10px">x</a>
+	
 <ul>
 <?php if($row->comments != NULL) { ?>
 <?php foreach ($row->comments as $comment) { ?>
+<a href="#" style="float:right; padding-right: 10px">x</a>
 <li class="comment-item first nus-mid-208236160">
 <div class="bubble"></div>
 <a href="#"><img id="" class="feed-photo photo" width="30" height="30" alt="" src="<?php echo 'uploads/30_'.$comment->userID.'.jpg' ?>"></a>
@@ -253,13 +271,13 @@
 <q id="">
 <span class="commentary"><?php echo $comment->description ?></span>
 </q>
-<span class="nus-timestamp"> 2h ago </span>
+<span class="nus-timestamp"> <?php echo $comment->timeofcomment ?> </span>
 </li>
 <?php }} ?>
 </ul>
 </div>
 <div class="form mini">
-<form method="post" action="<?php echo base_url()?>/index.php/home/home/updateComment">
+<form method="post" action="<?php echo base_url();?>/index.php/home/home/updateComment">
 <div class="mentions-container">
 <input type="hidden" name="postID" id="postID" value="<?php echo $row->postID ?>" />
 <textarea class="texta comment-text mentions-input" placeholder="Add a comment…" style="height: 40px;" name="comment"></textarea>
@@ -305,7 +323,7 @@
 		</ul>
 		<div class="clear"></div>
 		<ul class="footer-links">
-			<li><img src="images/logo-footer.png" alt="Footer Logo" /></li>
+			<li><img src="<?php echo base_url();?>/assets/css/images/logo-footer.png" alt="Footer Logo" /></li>
 			<li><a href="#">User Agreement </a></li>
 			<li><a href="#">Privacy Policy </a></li>
 			<li><a href="#">Community Guidelines </a></li>
@@ -314,5 +332,9 @@
 		</ul>
 	</div> <!-- END: FOOTER -->
 </body>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/js/jquery.imgareaselect.pack.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/js/script.js"></script>
+
 
 </html>

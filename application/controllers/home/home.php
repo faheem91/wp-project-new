@@ -1,7 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/* Author: Jorge Torres
- * Description: Login controller class
- */
+include( 'function.php');
 class home extends CI_Controller{
 		function __construct(){
 		parent::__construct();
@@ -29,16 +27,17 @@ public function index($msg=null){
 			$q = $this->home_model->get_friends_posts();
 			if($q!=NULL)
 			{
+
 				foreach($q as $row)
 				{
-					//echo var_dump($row);
-					$row->comments = $this->home_model->get_comments_from_post($row->postID);
-					
+
+					$row->comments = $this->home_model->get_comments_from_post($row->postID);			
 				}
 			}
 			$data['allposts'] = $q;
 			$this->load->view('common/header');
 			$this->load->view('home/home.php',$data);
+			//$this->load->view('home/test.php',$data);
 
 		}else{
 			$data['msg'] = $msg;
@@ -51,12 +50,82 @@ public function index($msg=null){
 
 
 }
+public function idGenerator(){
 
+$d=date('Y/m/d H:i:s');
+$s="";
+$i=0;
+for(;$d[$i]!=' ';$i++){
+
+if($d[$i]!='/')
+	$s=$s.$d[$i];
+
+}
+$i++;
+for(;$i<strlen($d);$i++){
+
+	if($d[$i]!=':')
+	{
+
+		$s=$s.$d[$i];
+	}
+}
+return $s;
+}
 public function updatePost(){
-	$this->load->model('home_model');
-	 $this->home_model->insertPost();
-	 //$query=$this->home_model->get_friends_posts();
+
+
+
+
+$max_file_size = 10240*10240; // 200kb
+$valid_exts = array('jpeg', 'jpg', 'png', 'gif');
+// thumbnail sizes
+$sizes = array(300 => 177);
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['image'])) {
+	if( $_FILES['image']['size'] < $max_file_size ){
+		// get file extension
+
+		$date=null;
+
+		$ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+		if (in_array($ext, $valid_exts)) {
+			$date = $this->idGenerator();
+			$date=$date.$this->session->userdata('userid');
+			
+
+			$_FILES['image']['name']=$date.'.jpg';
+			
+			foreach ($sizes as $w => $h) {
+				$files[] = resize($w, $h);
+			
+			}
+			
+		
+
+		} 
+	} 
+}
+
+
+
+
+$this->load->model('home_model');
+if($date){
+$this->home_model->insertPost($date);
+}
+else{
+$this->home_model->insertPost();
+
+}
+
+
+
+
 	
+	
+	 	
 
 
 
@@ -84,6 +153,27 @@ public function updateComment(){
 	$this->home_model->insertComment($userID,$id,$comment);
 
 	redirect('home/home','refresh');
+
+
+}
+
+public function deleteComment(){
+	$this->load->model('home_model');
+	$commentid=$this->input->post('commentID');
+	$this->home_model->deleteComment($commentid);
+
+	redirect('home/home','refresh');
+
+
+}
+	
+public function deletePost(){
+	$this->load->model('home_model');
+	$commentid=$this->input->post('postID');
+	$this->home_model->deletePost($postid);
+
+	redirect('home/home','refresh');
+
 
 
 }

@@ -4767,7 +4767,7 @@ blockquote:before, blockquote:after, q:before, q:after {
     float: left;
 }
 .home-member-new form .actions input{
-    width: 60px;
+    width: 80px;
     height:  20px;
 }
 .home-member-new form .actions{

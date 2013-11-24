@@ -13,7 +13,7 @@ class Login extends CI_Controller{
 			$this->load->helper('url');
 
 		if($this->session->userdata('username')){
-			redirect('search/search', 'refresh');
+			redirect('home/home', 'refresh');
 		}else{
 			$data['msg'] = $msg;
 			$data['heading'] = "Login";
@@ -24,7 +24,7 @@ class Login extends CI_Controller{
 	}
 	public function loggedin(){
 		if($this->session->userdata('username')){
-			redirect('search/search', 'refresh');
+			redirect('home/home', 'refresh');
 			
 		}else{
 			$data['msg'] = $msg;
@@ -43,7 +43,7 @@ class Login extends CI_Controller{
 		$this->load->helper('url');
 
 		if($this->session->userdata('username')){
-			redirect('search/search', 'refresh');
+			redirect('home/home', 'refresh');
 		}else{
 			$data['msg'] = $msg;
 			$data['heading'] = "Login";
@@ -78,7 +78,7 @@ class Login extends CI_Controller{
 			// Send them to members area
 
 if($this->session->userdata('username')){
-			redirect('search/search', 'refresh');
+			redirect('home/home', 'refresh');
 		}		
 	}
 }

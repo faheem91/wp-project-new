@@ -11,6 +11,7 @@ class Connection_model extends CI_Model{
 		$userid = $this->session->userdata('userid');
 		$this->db->where('userId2', $userid);
 		$query = $this->db->get('requests');
+		$data = null;
 		foreach($query->result() as $item)
 		{
 

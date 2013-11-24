@@ -6,13 +6,24 @@ class home_model extends CI_Model{
 	function __construct(){
 		parent::__construct();
 	}
-	
-	public function insertPost(){
+	public function deletePost($postid){
+		
+		$this->db->delete('post', array('postID' => $postid)); 
+	}
+	public function deleteComment($commentid){
+		$this->db->delete('comment', array('commentId' => $commentid)); 
+	}
+
+
+
+	public function insertPost($image=NULL){
 		$post=$this->security->xss_clean($this->input->post('newPost'));
 		$id=$this->session->userdata('userid');
 		$chooser=$this->input->post('chooser');
 
 
+
+if(!$image){
 
 		$data=array(
 			'userID'=>$id,
@@ -21,9 +32,30 @@ class home_model extends CI_Model{
 			);
 		$this->db->insert('post',$data);
 	}
+	else{
+
+		$data=array(
+			'userID'=>$id,
+			'description'=>$post,
+			'sharewith'=>$chooser,
+			'picturepath'=>$image
+			);
+		$this->db->insert('post',$data);
+
+
+
+
+	}
+
+}
+
+
+
 	public function insertComment($userid,$postId,$comment){
 		
 		$comment=$this->security->xss_clean($comment);
+
+
 		$data=array(
 			'userId'=>$userid,
 			'postID'=>$postId,
@@ -50,11 +82,7 @@ $this->db->insert('comment',$data);
 		// Let's check if there are any results
 		if($query->num_rows >= 1)
 		{
-			foreach($query->result() as $row)
-			{
-				echo var_dump($row);
-			} 
-			echo "Haha";
+			
 		    return $query->result();
 			   
 		}
@@ -76,7 +104,8 @@ $this->db->insert('comment',$data);
 		$this->db->join('post', 'post.userID = users.userid');
 		$this->db->where('userId1', $id);
 		$this->db->or_where('users.userid', $id);
-
+		$this->db->or_where('post.sharewith', false);
+		$this->db->order_by("timeofpost","desc");
 		$query = $this->db->get();
 		
 			
@@ -108,6 +137,7 @@ $this->db->insert('comment',$data);
 		$this->db->where('comment.postID', $postid);*/
 		//$query = $this->db->get();
 			// Let's check if there are any results
+		$this->db->order_by("timeofcomment","desc");
 			if($query->num_rows >= 1)
 			{
 			    return $query->result();
