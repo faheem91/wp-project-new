@@ -40,21 +40,46 @@ $this->db->insert('comment',$data);
 
 
 	}
-
-	public function get_friends_posts()
+	public function get_own_posts()
 	{
+		$id = $this->session->userdata('userid');
+		$this->db->from('users');
+		$this->db->join('post', 'post.userID = users.userid');
+		$this->db->where('users.userid = '.$id);
+		$query = $this->db->get();
+		// Let's check if there are any results
+		if($query->num_rows >= 1)
+		{
+			foreach($query->result() as $row)
+			{
+				echo var_dump($row);
+			} 
+			echo "Haha";
+		    return $query->result();
+			   
+		}
+			//echo var_dump($query);
+			return NULL;
+
+	}
+	public function get_friends_posts()
+	{	
 
 		$id = $this->session->userdata('userid');
 
-		$this->db->from('users');
-		$this->db->join('connections', 'users.userid = connections.userId2','left outer');
+		
 
+		$this->db->distinct();
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->join('connections', 'users.userid = connections.userId2 AND connections.userId1='.$id,'left outer');
 		$this->db->join('post', 'post.userID = users.userid');
-		//$this->db->join('comment', 'post.postID = comment.postID','left outer');
 		$this->db->where('userId1', $id);
 		$this->db->or_where('users.userid', $id);
 
 		$query = $this->db->get();
+		
+			
 			// Let's check if there are any results
 			if($query->num_rows >= 1)
 			{
@@ -64,7 +89,7 @@ $this->db->insert('comment',$data);
 			//echo var_dump($query);
 			return NULL;
 	}
-
+	
 	public function get_comments_from_post($postid)
 	{
 		
