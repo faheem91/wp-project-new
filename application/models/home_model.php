@@ -21,14 +21,30 @@ class home_model extends CI_Model{
 		$id=$this->session->userdata('userid');
 		$chooser=$this->input->post('chooser');
 
+$reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 
+// The Text you want to filter for urls
+$text = $post;
+
+// Check if there is a url in the text
+if(preg_match($reg_exUrl, $text, $url))
+{
+
+       // make the urls hyper links
+		$url = $url[0];
+}
+else
+{
+	$url = null;
+}
 
 if(!$image){
 
 		$data=array(
 			'userID'=>$id,
 			'description'=>$post,
-			'sharewith'=>$chooser
+			'sharewith'=>$chooser,
+			'post_link'=>$url
 			);
 		$this->db->insert('post',$data);
 	}
@@ -38,7 +54,8 @@ if(!$image){
 			'userID'=>$id,
 			'description'=>$post,
 			'sharewith'=>$chooser,
-			'picturepath'=>$image
+			'picturepath'=>$image,
+			'post_link'=>$url
 			);
 		$this->db->insert('post',$data);
 

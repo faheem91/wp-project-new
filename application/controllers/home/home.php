@@ -81,13 +81,13 @@ $max_file_size = 10240*10240; // 200kb
 $valid_exts = array('jpeg', 'jpg', 'png', 'gif');
 // thumbnail sizes
 $sizes = array(300 => 177);
-
+$date=null;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_FILES['image'])) {
 	if( $_FILES['image']['size'] < $max_file_size ){
 		// get file extension
 
-		$date=null;
+		
 
 		$ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
 		if (in_array($ext, $valid_exts)) {
@@ -119,20 +119,6 @@ else{
 $this->home_model->insertPost();
 
 }
-
-
-
-
-	
-	
-	 	
-
-
-
-
-	 
-
-
 
 
 	redirect('home/home','refresh');

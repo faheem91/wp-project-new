@@ -191,7 +191,7 @@ strong{
 }
 .content{
 	float: left;
-	width: 420px;
+	width: 500px;
 }
 
 .sidebar{
@@ -1592,10 +1592,6 @@ strong{
 }
 .padding-0-10px{
 	padding: 0 7px;
-}
-.content{
-	float: left;
-	width: 420px;
 }
 
 .sidebar{
@@ -4201,7 +4197,7 @@ p.check-textarea-message {
     padding: 9px 10px;
     position: relative;
     vertical-align: middle;
-    width: 400px;
+    width: 480px;
 }
 .post-home.share-box .post-message {
     resize: vertical;
@@ -4477,7 +4473,7 @@ p.check-textarea-message {
 
 .nus-feed-container .feed-item .feed-content, .feed-redesign #my-feed-post.katify .feed-item .feed-content {
     line-height: 17px;
-    margin-right: 20px;
+    margin-right: 100px;
     margin-top: 0;
     padding: 0;
 }
@@ -4768,7 +4764,7 @@ blockquote:before, blockquote:after, q:before, q:after {
 }
 .home-member-new form .actions input{
     width: 80px;
-    height:  20px;
+    height:  30px;
 }
 .home-member-new form .actions{
     float: right;

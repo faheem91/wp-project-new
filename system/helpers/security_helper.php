@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+`<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * CodeIgniter
  *
@@ -75,6 +75,7 @@ if ( ! function_exists('do_hash'))
 {
 	function do_hash($str, $type = 'sha1')
 	{
+		echo "faheem :D";
 		if ($type == 'sha1')
 		{
 			return sha1($str);

@@ -52,15 +52,71 @@ $this->db->update('users', $data);
 return "default";
 
 }
-	
+ 
+
+function pbkdf2($algorithm, $password, $salt, $count, $key_length, $raw_output = false)
+{
+ 
+    $algorithm = strtolower($algorithm);
+    if(!in_array($algorithm, hash_algos(), true))
+        die('PBKDF2 ERROR: Invalid hash algorithm.');
+    if($count <= 0 || $key_length <= 0)
+        die('PBKDF2 ERROR: Invalid parameters.');
+ 
+    $hash_length = strlen(hash($algorithm, "", true));
+    $block_count = ceil($key_length / $hash_length);
+ 
+    $output = "";
+    for($i = 1; $i <= $block_count; $i++) {
+        // $i encoded as 4 bytes, big endian.
+        $last = $salt . pack("N", $i);
+        // first iteration
+        $last = $xorsum = hash_hmac($algorithm, $last, $password, true);
+        // perform the other $count - 1 iterations
+        for ($j = 1; $j < $count; $j++) {
+            $xorsum ^= ($last = hash_hmac($algorithm, $last, $password, true));
+        }
+        $output .= $xorsum;
+    }
+ 
+    if($raw_output)
+        return substr($output, 0, $key_length);
+    else
+        return bin2hex(substr($output, 0, $key_length));
+}
+ 
+function create_hash($password)
+{
+
+ 
+    // format: algorithm:iterations:salt:hash
+    return $salt = base64_encode(mcrypt_create_iv(PBKDF2_SALT_BYTES, MCRYPT_DEV_URANDOM));
+    
+}
+ 
+
+
 
 public function validate(){
+
+ 
 		// grab user input
 		$this->load->helper('security');
 
 		$username = $this->security->xss_clean($this->input->post('email'));
 		$password = $this->security->xss_clean($this->input->post('password'));
-		//$password = do_hash($password);
+
+		$salt = $this->create_hash($password);
+		$password = PBKDF2_HASH_ALGORITHM . ":" . PBKDF2_ITERATIONS . ":" .  $salt . ":" .
+        base64_encode($this->pbkdf2(
+            PBKDF2_HASH_ALGORITHM,
+            $password,
+            $salt,
+            PBKDF2_ITERATIONS,
+            PBKDF2_HASH_BYTES,
+            true
+        ));
+
 		$firstname=$this->security->xss_clean($this->input->post('firstName'));
 		$lastname=$this->security->xss_clean($this->input->post('lastName'));
 		// Prep the query
@@ -84,7 +140,8 @@ $data = array(
 				'fname' => $this->input->post('firstName'),
 				'lname' => $this->input->post('lastName'),
 				'username' => $this->input->post('email'),
-				'password' => $this->input->post('password')
+				'password' => $password,
+				'salt' => $salt
 			);
 		
 			$this->db->insert('users' , $data);

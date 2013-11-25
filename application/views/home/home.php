@@ -58,6 +58,7 @@
 					</div>
 				</form>
 			</div>
+			
 			<div class="header-section last-child">
 				<ul id="control_gen_5" class="nav utilities" role="navigation">
 										<li class="nav-item activity-tab">
@@ -72,9 +73,9 @@
 									
 										<li class="update first single"> <!-- Class="first" added -->
 											<span class="timestamp">21d</span>
-											<div class="photo"><img width="40" height="40" alt="Full Name" src="images/ghost_profile_40x40_v1.png"></div>
+											<div class="photo"><img width="40" height="40" src="images/ghost_profile_40x40_v1.png"></div>
 											<div class="action">
-												<span class="name">Full Name</span>
+												<span id="showText" class="name"></span>
 												<span class="headline">Student at The University of Hong...</span>
 												<a class="btn-primary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Connect</a>
 												<a class="btn-secondary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Ignore</a>
@@ -84,9 +85,9 @@
 										</li>
 										<li class="update single"> <!-- "first" is only for first element. it doesnt belong here :p -->
 											<span class="timestamp">21d</span>
-											<div class="photo"><img width="40" height="40" alt="Full Name" src="images/ghost_profile_40x40_v1.png"></div>
+											<div class="photo"><img width="40" height="40" src="images/ghost_profile_40x40_v1.png"></div>
 											<div class="action">
-												<span class="name">Full Name</span>
+												<span id="showText" class="name"></span>
 												<span class="headline">Student at The University of Hong...</span>
 												<strong>is now a connection</strong>
 											</div>
@@ -190,13 +191,11 @@
 <div id="post-module-neu" class="enable-slideshare mentions-enabled transition active active_message">
 <div id="share-entity-mentions-container" class="mentions-container">
 
-<div  style=" background: url(<?php echo base_url();?>uploads/uploadpic.png); background-repeat:no-repeat;margin-left: 95%;margin-top: 2%;">
-	
-
-<input id="uploadImage" type="file" accept="image/jpeg" name="image"  style="filter: alpha(opacity=0);opacity: 0;" />
-	
-</div>
 <textarea id="postText-postModuleForm" class="post-message mentions-input" cols="40" rows="2" name="newPost" placeholder="Share an update..." data-base-height="15"></textarea>
+<div  style=" background: url(<?php echo base_url();?>uploads/uploadpic.png); background-repeat:no-repeat;margin: -50px -200px 0 0; float: right;">
+<input id="uploadImage" type="file" accept="image/jpeg" name="image"  style="filter: alpha(opacity=0);opacity: 0; cursor: pointer;" />
+</div>
+
 </div>
 <div class="post-actions">
 <div class="submit">
@@ -238,6 +237,10 @@
 <div class="annotated-body">
 <span><strong><a href="#"><?php echo $row->fname.' '.$row->lname ?></a></strong></span>
 <span><?php echo $row->description ?></span>
+<?php if($row->post_link != NULL){?>
+<span><a class="embedly-card" href="<?php echo $row->post_link ?>"></a></span>
+<script>!function(a){var b="embedly-platform",c="script";if(!a.getElementById(b)){var d=a.createElement(c);d.id=b,d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}}(document);</script>
+<?php }?>
 </div>
 <div class="share-object linkedin-profile-snapshot ">
 <div class="properties">
@@ -266,7 +269,7 @@
 <a href="#" style="float:right; padding-right: 10px">x</a>
 <li class="comment-item first nus-mid-208236160">
 <div class="bubble"></div>
-<a href="#"><img id="" class="feed-photo photo" width="30" height="30" alt="" src="<?php echo 'uploads/30_'.$comment->userID.'.jpg' ?>"></a>
+<a href="#"><img id="" class="feed-photo photo" width="30" height="30" alt="" src="<?php echo 'uploads/30_'.$comment->imageUrl.'.jpg' ?>"></a>
 <p><span class="new-miniprofile-container"><a href="#"><?php echo $comment->fname.' '.$comment->lname ?></a></span></p>
 <q id="">
 <span class="commentary"><?php echo $comment->description ?></span>
@@ -332,9 +335,31 @@
 		</ul>
 	</div> <!-- END: FOOTER -->
 </body>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="http://cdn.embed.ly/jquery.embedly-3.1.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/js/jquery.imgareaselect.pack.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/js/script.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/jquery.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script type = "text/javascript">
+		$('#mydiv').click(function()
+		{
+			alert("dasasd");
+			$.ajax(
 
+			url:"",
+			type:"POST",
+			success: function (data)
+			{
+				alert(data);
+			},
+			error:function ()
+			{
+				alert('error');
+			}
+		);
+		});
+				
+		</script>
 
 </html>

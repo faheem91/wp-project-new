@@ -48,7 +48,30 @@ class Connection extends CI_Controller{
 
 public function acceptfriend(){
 	
+	if($this->session->userdata('username')){
+			$this->load->model('signup_model');
+		// Validate the user can login
+		$id = $this->signup_model->getProfileImage();
+			
+				$data["pic_url"]='uploads/30_'.$id.'.jpg';
+				
+				$fname=$this->session->userdata('fname');
+				$lname=$this->session->userdata('lname');
+				$fullname=$fname." ".$lname;
+				//$another=base_url();
+				//$anotherData='http://'.$another.$data["pic_url"];
 
+				$data["fullname"]=$fullname;
+				
+				$data["list"]=NULL;
+
+		}else{
+			$data['msg'] = $msg;
+			$data['heading'] = "Login";
+			$this->load->view('common/header');
+			//$this->load->view('loginView/login_view', $data)
+			$this->load->view('myview/default_main_page.php');
+		}
 	$this->load->model('connection_model');
 	$x = $this->connection_model->accept_friend();
 	if($x)

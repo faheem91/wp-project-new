@@ -27,11 +27,24 @@ class Notifications extends CI_Controller{
 
 				$data["fullname"]=$fullname;
 				
-				$data["list"]=NULL;
+				
+
+		$this->load->model('connection_model');
+		
+		$model_data = $this->connection_model->get_friend_list();
+	
+		if($model_data!=NULL)
+		{
+
+  			foreach($model_data as $friend)
+  			{
+  					$data['list'] = $model_data;
+  			}
+  			
+		}
 
 
-			$this->load->view('common/header');
-			$this->load->view('search/main_search.php',$data);
+		
 		}else{
 			$data['msg'] = $msg;
 			$data['heading'] = "Login";
