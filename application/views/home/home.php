@@ -61,38 +61,18 @@
 			
 			<div class="header-section last-child">
 				<ul id="control_gen_5" class="nav utilities" role="navigation">
-										<li class="nav-item activity-tab">
-						<a class="activity-toggle notifications-alert" href="<?php echo base_url();?>index.php/connections/connection" > Notifications</a>
+										<li class="nav-item activity-tab" onclick="ajaxNotifications();" >
+						<div class="activity-toggle notifications-alert"  > Notifications</div>
 						<div id="notifications" class="activity-container">
 							<div class="activity-drop">
 								<div class="activity-drop-header">
 									<h3>Notifications <span class="sub-nav-header-arrow" role="presentation"></span></h3>
 								</div>
 								<div id="control_gen_25" class="activity-drop-body">
-									<ol class="li-scroll-content">
+									<ol class="li-scroll-content" id="notificationUpdate">
 									
-										<li class="update first single"> <!-- Class="first" added -->
-											<span class="timestamp">21d</span>
-											<div class="photo"><img width="40" height="40" src="images/ghost_profile_40x40_v1.png"></div>
-											<div class="action">
-												<span id="showText" class="name"></span>
-												<span class="headline">Student at The University of Hong...</span>
-												<a class="btn-primary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Connect</a>
-												<a class="btn-secondary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Ignore</a>
-												<!--<strong>is now a connection</strong>-->
-											</div>
-											<a href="#" class="notification-link">View Profile</a>
-										</li>
-										<li class="update single"> <!-- "first" is only for first element. it doesnt belong here :p -->
-											<span class="timestamp">21d</span>
-											<div class="photo"><img width="40" height="40" src="images/ghost_profile_40x40_v1.png"></div>
-											<div class="action">
-												<span id="showText" class="name"></span>
-												<span class="headline">Student at The University of Hong...</span>
-												<strong>is now a connection</strong>
-											</div>
-											<a href="#" class="notification-link">View Profile</a>
-										</li>
+										
+										
 									</ol>
 								</div>
 							</div>
@@ -263,7 +243,7 @@
 
 <div class="comments">
 	
-<ul>
+<ul id="<?php echo $row->postID.'comment';?>">
 <?php if($row->comments != NULL) { ?>
 <?php foreach ($row->comments as $comment) { ?>
 <a href="#" style="float:right; padding-right: 10px">x</a>
@@ -283,10 +263,10 @@
 <form method="post" action="<?php echo base_url();?>/index.php/home/home/updateComment">
 <div class="mentions-container">
 <input type="hidden" name="postID" id="postID" value="<?php echo $row->postID ?>" />
-<textarea class="texta comment-text mentions-input" placeholder="Add a comment…" style="height: 40px;" name="comment"></textarea>
+<textarea class="texta comment-text mentions-input" placeholder="Add a comment…" style="height: 40px;" id="<?php echo $row->postID;?>" name="comment"></textarea>
 </div>
 <div class="actions">
-<input class="btn-primary" type="submit" value="Comment" />
+<input class="btn-primary" type="button" onclick="hello(<?php echo $row->postID;?>);" value="Comment" />
 </div>
 </form>
 </div>
@@ -341,25 +321,74 @@
 	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/js/script.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>/assets/js/jquery.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		<script type = "text/javascript">
-		$('#mydiv').click(function()
-		{
-			alert("dasasd");
-			$.ajax(
+	<script type="text/javascript">
+function hello(id){
 
-			url:"",
-			type:"POST",
-			success: function (data)
-			{
-				alert(data);
-			},
-			error:function ()
-			{
-				alert('error');
-			}
-		);
-		});
+var data=document.getElementById(id).value;
+
+
+	var hr = new XMLHttpRequest();
+    // Create some variables we need to send to our PHP file
+    var url = "<?php echo base_url()?>/index.php/home/home/updateCommentAJAX";
+    var vars = "postID="+id+"&comment="+data;
+    hr.open("POST", url, true);
+    // Set content type header information for sending url encoded variables in the request
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // Access the onreadystatechange event for the XMLHttpRequest object
+    hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var return_data = hr.responseText;
+		   
+		    document.getElementById(id+"comment").innerHTML+="<li class='comment-item first nus-mid-208236160'><div class='bubble'></div><a href='#'><img id='' class='feed-photo photo' width='30' height='30' alt='' src='"+return_data+"'></a><p><span class='new-miniprofile-container'><a href='#'><?php echo $fullname; ?></a></span></p><q id=''><span class='commentary'>"+data+"</span></q><span class='nus-timestamp'> "+Date()+" </span></li>";
+		    document.getElementById(id).value="";
+		  
+
+
+
+
+
+
+		
+	    }
+    }
+    // Send the data to PHP now... and wait for response to update the status div
+    hr.send(vars); // Actually execute the request
+  }
+
+  function ajaxNotifications(){
+
+    var hr = new XMLHttpRequest();
+
+    hr.open("POST", "<?php echo base_url()?>/index.php/notifications/notifications/getfriendListAJAX", true);
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+		//    alert(data);
+			document.getElementById("notificationUpdate").innerHTML= "";
+			for(var obj in data){
+
+				document.getElementById("notificationUpdate").innerHTML+="<form action='<?php echo base_url();?>index.php/connections/connection/acceptfriend' method='post' name='process' id='add-friend'><li class='update single'> <span class='timestamp'></span><div class='photo'><img width='40' height='40' src='<?php echo base_url();?>uploads/30_"+data[obj].imageUrl+".jpg"+"'></div><div class='action'><span id='showText' class='name'>"+data[obj].fullname+"</span><input name='friendid' type='hidden' value='"+data[obj].userid+"'><button type='submit' value='Connect' name='addignore' class='btn-primary' style='margin: 5px 5px 5px 5px; text-align: center; width: 65px;'>Connect</button><button type='submit' value='Ignore' name='addignore' class='btn-secondary' style='margin: 5px 5px 5px 5px; text-align: center; width: 65px;'>Ignore</button></div></li></form>";
+
+
+				//results.innerHTML += "Property A: "+data[obj].propertyA+"<hr />";
 				
-		</script>
+			}
+	    }
+    }
+    hr.send();
+    document.getElementById("notificationUpdate").innerHTML = "<li class='update single'><p>No pending requests..</p></li>";
+
+}
+
+
+
+
+
+</script>
+
+
+
+	
 
 </html>

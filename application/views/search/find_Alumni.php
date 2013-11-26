@@ -48,7 +48,6 @@
 						<button class="search-button" type="submit" value="Search" name="search">
 							<span>Search</span>
 						</button>
-					</fieldset>
 					<div class="advanced-search-outer">
 						<div class="advanced-search-inner">
 							<a id="advanced-search" class="advanced-search" href="<?php echo base_url();?>/index.php/search/search">Advanced </a>
@@ -56,41 +55,21 @@
 					</div>
 				</form>
 			</div>
+			
 			<div class="header-section last-child">
 				<ul id="control_gen_5" class="nav utilities" role="navigation">
-					<li class="nav-item activity-tab"><a class="activity-toggle inbox-alert" href="">Inbox</a></li>
-					<li class="nav-item activity-tab">
-						<a class="activity-toggle notifications-alert" href="http://localhost/FASTSemester5WPBaseProjectPHP/index.php/connections/connection"> Notifications</a>
+										<li class="nav-item activity-tab" onclick="ajaxNotifications();" >
+						<div class="activity-toggle notifications-alert"  > Notifications</div>
 						<div id="notifications" class="activity-container">
 							<div class="activity-drop">
 								<div class="activity-drop-header">
 									<h3>Notifications <span class="sub-nav-header-arrow" role="presentation"></span></h3>
 								</div>
 								<div id="control_gen_25" class="activity-drop-body">
-									<ol class="li-scroll-content">
+									<ol class="li-scroll-content" id="notificationUpdate">
 									
-										<li class="update first single"> <!-- Class="first" added -->
-											<span class="timestamp">21d</span>
-											<div class="photo"><img width="40" height="40" alt="Full Name" src="images/ghost_profile_40x40_v1.png"></div>
-											<div class="action">
-												<span class="name">Full Name</span>
-												<span class="headline">Student at The University of Hong...</span>
-												<a class="btn-primary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Connect</a>
-												<a class="btn-secondary" style="margin: 5px 5px 5px 0; text-align: center; width: 50px;">Ignore</a>
-												<!--<strong>is now a connection</strong>-->
-											</div>
-											<a href="#" class="notification-link">View Profile</a>
-										</li>
-										<li class="update single"> <!-- "first" is only for first element. it doesnt belong here :p -->
-											<span class="timestamp">21d</span>
-											<div class="photo"><img width="40" height="40" alt="Full Name" src="images/ghost_profile_40x40_v1.png"></div>
-											<div class="action">
-												<span class="name">Full Name</span>
-												<span class="headline">Student at The University of Hong...</span>
-												<strong>is now a connection</strong>
-											</div>
-											<a href="#" class="notification-link">View Profile</a>
-										</li>
+										
+										
 									</ol>
 								</div>
 							</div>
@@ -331,7 +310,7 @@
 							<input type="hidden" name="friendid" value=<?php echo $res->userid; ?> />
 							<li class="person">
 								<a class="profile-link">
-									<img alt="<?php echo $res->fname ?>" src="<?php echo 'uploads/30_'.$res->imageUrl.'.jpg' ?>" />
+									<img alt="<?php echo $res->fname ?>" src="<?php echo 'uploads/100_'.$res->imageUrl.'.jpg' ?>" />
 								</a>
 								<div class="details">
 									<h3 class="full-name">
@@ -420,7 +399,7 @@
 							<input type='hidden' name='friendid' value='"d->userid"' />
 							<li class='person'>
 								<a class='profile-link'>
-									<img alt='"d->fname" + ' ' + "d->lname" src='uploads/30_'.'"d->imageUrl"'.'.jpg' />
+									<img alt='"d->fname" + ' ' + "d->lname" src='uploads/100_'.'"d->imageUrl"'.'.jpg' />
 								</a>
 								<div class='details'>
 									<h3 class='full-name'>
@@ -452,6 +431,33 @@
 
 
 }
+
+  function ajaxNotifications(){
+
+    var hr = new XMLHttpRequest();
+
+    hr.open("POST", "<?php echo base_url()?>/index.php/notifications/notifications/getfriendListAJAX", true);
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+		//    alert(data);
+			document.getElementById("notificationUpdate").innerHTML= "";
+			for(var obj in data){
+
+				document.getElementById("notificationUpdate").innerHTML+="<form action='<?php echo base_url();?>index.php/connections/connection/acceptfriend' method='post' name='process' id='add-friend'><li class='update single'> <span class='timestamp'></span><div class='photo'><img width='40' height='40' src='<?php echo base_url();?>uploads/30_"+data[obj].imageUrl+".jpg"+"'></div><div class='action'><span id='showText' class='name'>"+data[obj].fullname+"</span><input name='friendid' type='hidden' value='"+data[obj].userid+"'><button type='submit' value='Connect' name='addignore' class='btn-primary' style='margin: 5px 5px 5px 5px; text-align: center; width: 65px;'>Connect</button><button type='submit' value='Ignore' name='addignore' class='btn-secondary' style='margin: 5px 5px 5px 5px; text-align: center; width: 65px;'>Ignore</button></div></li></form>";
+
+
+				//results.innerHTML += "Property A: "+data[obj].propertyA+"<hr />";
+				
+			}
+	    }
+    }
+    hr.send();
+    document.getElementById("notificationUpdate").innerHTML = "<li class='update single'><p>No pending requests..</p></li>";
+
+}
+
 
 </script>
 

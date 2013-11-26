@@ -178,12 +178,12 @@
 			<?php foreach ($list as $item):?>
 			
 				<li class="person">
-					<img class="photo" width="40" height="40" alt="No Photo" src="images/ghost_profile_40x40_v1.png" />
+					<img class="photo" width="40" height="40" alt="No Photo" src="<?php echo 'uploads/30_'.$item->imageUrl .'.jpg' ?>" />
 					<div class="content">
 						<span class="new-miniprofile-container">
 							<strong><h4><a class="fn" href="#"><?php echo $item->fname.' '.$item->lname ?></a></h4></strong>
 						</span>
-						<p class="headline">Accountant at Mobilink Franchise</p>
+						<p class="headline"></p>
 						<ul class="inbox-actions">
 							<li>	
 								<input type="hidden" name="userid" id="userid" value="<?php $item->userid ?>" />

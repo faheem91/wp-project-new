@@ -8,52 +8,32 @@ class Notifications extends CI_Controller{
 		$this->load->helper('url');
 	}
 	
-	public function index(){
-		// Load our view to be displayed
-		// to the user
-		$this->load->helper('url');
-
-		if($this->session->userdata('username')){
-			$this->load->model('signup_model');
-		// Validate the user can login
-			$id = $this->signup_model->getProfileImage();
-			
-				$data["pic_url"]='uploads/30_'.$id.'.jpg';
-				$fname=$this->session->userdata('fname');
-				$lname=$this->session->userdata('lname');
-				$fullname=$fname." ".$lname;
-				//$another=base_url();
-				//$anotherData='http://'.$another.$data["pic_url"];
-
-				$data["fullname"]=$fullname;
-				
-				
-
-		$this->load->model('connection_model');
-		
-		$model_data = $this->connection_model->get_friend_list();
+	public function index()
+	{
+	  	echo "hamza ka level";
+	} 
+	public function getfriendListAJAX(){
+	$this->load->helper('url');
+	$this->load->model('connection_model');
+	$res = $this->connection_model->get_friend_list();
 	
-		if($model_data!=NULL)
-		{
-
-  			foreach($model_data as $friend)
-  			{
-  					$data['list'] = $model_data;
-  			}
-  			
-		}
+$jsonData = '{';
+$i=0;
+	foreach($res as $friend)
+	{
 
 
-		
-		}else{
-			$data['msg'] = $msg;
-			$data['heading'] = "Login";
-			$this->load->view('common/header');
-			//$this->load->view('loginView/login_view', $data)
-			$this->load->view('myview/default_main_page.php');
-		}
-		//$this->load->view('common/footer',$data);
+		 $friend->fullname=$friend->fname.' '.$friend->lname;
+		 $jsonData .= '"user'.$i.'":{ "imageUrl":"'.$friend->imageUrl.'","fullname":"'.$friend->fullname.'", "userid":"'.$friend->userid.'" },';
+		 $i++;
+		//echo $friend->userid;
+		//echo 'uploads/30_'.$friend->imageUrl .'.jpg';
 	}
+	
+$jsonData = chop($jsonData, ",");
+$jsonData .= '}';
+echo $jsonData;
+}
 }
 
 ?>

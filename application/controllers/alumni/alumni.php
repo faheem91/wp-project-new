@@ -19,7 +19,7 @@ $this->load->helper('url');
 				$this->load->model('signup_model');
 		// Validate the user can login
 		$id = $this->signup_model->getProfileImage();
-		$date1=2006;
+		$date1=1600;
 		$date2=2017;
 			$fname=$this->session->userdata('fname');
 				$lname=$this->session->userdata('lname');
@@ -92,7 +92,7 @@ $this->load->helper('url');
 
 			//$this->alumni_model->get_school_info($x['institutionId']);
 			$this->load->view('common/header');
-			//$this->load->view('search/find_Alumni.php',$data);
+			$this->load->view('search/find_Alumni.php',$data);
 		}
 		}
 		else
@@ -170,9 +170,9 @@ $this->load->helper('url');
 				$data['fCountPercent'] = $fCount;
 
 			//$this->alumni_model->get_school_info($x['institutionId']);
-			/*$this->load->view('common/header');
+			$this->load->view('common/header');
 			$this->load->view('search/find_Alumni.php',$data);
-			*/
+			
 			
 		}
 		else

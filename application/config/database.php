@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = '205.204.70.2';
-$db['default']['username'] = 'x5deezon_p1';
+$db['default']['username'] = 'x5deezon_p2';
 $db['default']['password'] = 'Hamza123!';
-$db['default']['database'] = 'x5deezon_p1';
+$db['default']['database'] = 'x5deezon_p2';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

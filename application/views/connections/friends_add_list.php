@@ -62,10 +62,28 @@
 					</div>
 				</form>
 			</div>
+			
 			<div class="header-section last-child">
 				<ul id="control_gen_5" class="nav utilities" role="navigation">
+										<li class="nav-item activity-tab" onclick="ajaxNotifications();" >
+						<div class="activity-toggle notifications-alert"  > Notifications</div>
+						<div id="notifications" class="activity-container">
+							<div class="activity-drop">
+								<div class="activity-drop-header">
+									<h3>Notifications <span class="sub-nav-header-arrow" role="presentation"></span></h3>
+								</div>
+								<div id="control_gen_25" class="activity-drop-body">
+									<ol class="li-scroll-content" id="notificationUpdate">
+									
+										
+										
+									</ol>
+								</div>
+							</div>
+						</div>
+					</li>
 					<li class="nav-item activity-tab"><a class="activity-toggle inbox-alert" href="">Inbox</a></li>
-					<li class="nav-item activity-tab"><a class="activity-toggle notifications-alert" href="">Notifications</a></li>
+					
 										<li class="nav-item account-settings-tab">
 						<a class="account-toggle" href="<?php echo base_url();?>index.php/search/upload_picture">
 							<img src="<?php echo base_url(); echo $pic_url; ?>" width="20" height="20" />
@@ -240,5 +258,32 @@
 		</ul>
 	</div> <!-- END: FOOTER -->
 </body>
+<script type="text/javascript">
+  function ajaxNotifications(){
+
+    var hr = new XMLHttpRequest();
+
+    hr.open("POST", "<?php echo base_url()?>/index.php/notifications/notifications/getfriendListAJAX", true);
+    hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      hr.onreadystatechange = function() {
+	    if(hr.readyState == 4 && hr.status == 200) {
+		    var data = JSON.parse(hr.responseText);
+		//    alert(data);
+			document.getElementById("notificationUpdate").innerHTML= "";
+			for(var obj in data){
+
+				document.getElementById("notificationUpdate").innerHTML+="<form action='<?php echo base_url();?>index.php/connections/connection/acceptfriend' method='post' name='process' id='add-friend'><li class='update single'> <span class='timestamp'></span><div class='photo'><img width='40' height='40' src='<?php echo base_url();?>uploads/30_"+data[obj].imageUrl+".jpg"+"'></div><div class='action'><span id='showText' class='name'>"+data[obj].fullname+"</span><input name='friendid' type='hidden' value='"+data[obj].userid+"'><button type='submit' value='Connect' name='addignore' class='btn-primary' style='margin: 5px 5px 5px 5px; text-align: center; width: 65px;'>Connect</button><button type='submit' value='Ignore' name='addignore' class='btn-secondary' style='margin: 5px 5px 5px 5px; text-align: center; width: 65px;'>Ignore</button></div></li></form>";
+
+
+				//results.innerHTML += "Property A: "+data[obj].propertyA+"<hr />";
+				
+			}
+	    }
+    }
+    hr.send();
+    document.getElementById("notificationUpdate").innerHTML = "<li class='update single'><p>No pending requests..</p></li>";
+
+}
+</script>
 
 </html>

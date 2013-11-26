@@ -11,7 +11,7 @@ public function index($msg=null){
 
 		if($this->session->userdata('username')){
 				$this->load->model('signup_model');
-			$id=$id = $this->signup_model->getProfileImage();
+			$id= $this->signup_model->getProfileImage();
 			$data["pic_url"]='uploads/30_'.$id.'.jpg';
 				$data["big_Pic"]='uploads/100_'.$id.'.jpg';
 				$fname=$this->session->userdata('fname');
@@ -50,6 +50,22 @@ public function index($msg=null){
 
 
 }
+public function updateCommentAJAX(){
+	$this->load->model('home_model');
+	$id=$this->input->post('postID');
+	
+	$userID=$this->session->userdata('userid');
+	$comment=$this->input->post('comment');
+	$this->load->model('home_model');
+	$this->home_model->insertComment($userID,$id,$comment);
+			$this->load->model('signup_model');
+$id = $this->signup_model->getProfileImage();
+		$d='uploads/30_'.$id.'.jpg';
+echo $d;
+
+
+}
+
 public function idGenerator(){
 
 $d=date('Y/m/d H:i:s');
