@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://linkedinwp.herokuapp.com/';
+$config['base_url']	= 'http://wp-project-new.herokuapp.com/';
 
 /*
 |--------------------------------------------------------------------------
